@@ -5,15 +5,6 @@ import Footer from '@components/Footer'
 export default function Home() {
   return (
     <div>
-    <nav>
-        <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#aboutUs.html">About</a>
-            <a href="#">Start Learning</a>
-        </div>
-        <img src="/api/placeholder/100/40" alt="SignIE Logo"/>
-        <a href="#" class="sign-in-btn">Sign In</a>
-    </nav>
 
     <section class="hero">
         <div class="hero-content">
@@ -70,15 +61,6 @@ export default function Home() {
         <a href="#" class="start-btn">About Us</a>
     </section>
 
-    <footer>
-        <img src="/api/placeholder/100/40" alt="SignIE Logo"/>
-        <div class="footer-links">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-        </div>
-        <p>©2025 SignIE</p>
-    </footer>
     </div>
   )
 }
