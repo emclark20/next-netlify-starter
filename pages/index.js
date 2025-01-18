@@ -3,8 +3,7 @@ import Header from '@components/Header'
 import Footer from '@components/Footer'
 
 export default function Home() {
-  return (
-    Header,
+  return Header(
     <div>
 
     <section class="hero">
@@ -61,9 +60,9 @@ export default function Home() {
         </div>
         <a href="#" class="start-btn">About Us</a>
     </section>
-    Footer
     </div>
     
   )
+  Footer();
 }
 
