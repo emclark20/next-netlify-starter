@@ -5,7 +5,7 @@ import Footer from '@components/Footer.js'
 export default function Home() {
   return (
     <div>
-
+<Header title="SignIE"/>
     <section class="hero">
         <div class="hero-content">
             <h1>Introducing<br/>SignIE</h1>
@@ -60,9 +60,8 @@ export default function Home() {
         </div>
         <a href="#" class="start-btn">About Us</a>
     </section>
-    </div>
+    <Footer/>    </div>
     
   )
-  Footer();
 }
 
