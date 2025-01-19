@@ -3,7 +3,7 @@ import styles from './Footer.module.css'
 export default function Footer() {
   return (
     <>
-       <footer>
+       <div class="footer">
         <img src="/api/placeholder/100/40" alt="SignIE Logo"/>
         <div class="footer-links">
             <a href="#">Home</a>
@@ -11,7 +11,7 @@ export default function Footer() {
             <a href="#">Contact</a>
         </div>
         <p>©2025 SignIE</p>
-    </footer>
+    </div>
     </>
   )
 }
