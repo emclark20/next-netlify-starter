@@ -1,4 +1,4 @@
-import styles from './Header.module.css'
+
  export default function Header() {
     return (<nav>
     <div class="nav-links">
