@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer.js'
-import Styles from '@styles/globals.css'
 export default function Home() {
   return (
     <div>
