@@ -167,7 +167,7 @@ footer {
 .container {
   display: grid;
   grid-template-columns: auto, auto;
-  height: 70rem;
+  height: 40rem;
   margin: 2rem 3rem;
   padding: 1rem;
 
