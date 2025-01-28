@@ -19,12 +19,14 @@ p {
 h1,h2, h3, h4, h5, h6 {
   font-family: var(--font-league-spartan), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
+
 nav {
   background-color: var(--navy);
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: var(--font-league-spartan), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .nav-links {
@@ -166,6 +168,8 @@ footer {
   }
 }
 
+/*CSS FOR ABOUT PAGE DONE BY KAREN*/
+
 .aboutBody {
-  background-color: orange;
+  background-color: lightblue;
 }
