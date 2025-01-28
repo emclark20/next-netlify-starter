@@ -179,6 +179,7 @@ footer {
   gap: 1rem;
   float: left;
   width: 150%;
+  margin-left: 3rem;
 }
 .row {
   display: flex;
