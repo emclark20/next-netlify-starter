@@ -178,7 +178,7 @@ footer {
   grid-template-rows: auto, auto, auto;
   gap: 1rem;
   float: left;
-  width: 50%;
+  width: 150%;
 }
 .row {
   display: flex;
