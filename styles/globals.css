@@ -171,7 +171,7 @@ footer {
   margin: 2rem 3rem;
   padding: 1rem;
 
-
+  gap: 8rem;
 }
 .libraries {
   display: grid;
