@@ -1,8 +1,9 @@
-
+import Link from 'next/link'
  export default function Header() {
     return (<nav>
     <div class="nav-links">
-        <a href="">Home</a>
+        <Link href="/">HOME</Link>
+        <Link href="/aboutUs">About Us</Link>
         <a href="aboutUs">About</a>
         <a href="startLearning">Start Learning</a>
         <a href="signUp">SignUP</a>
