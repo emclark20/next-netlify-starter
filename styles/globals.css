@@ -143,20 +143,21 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .hero, .new-way {
-      flex-direction: column;
+
+  .hero,
+  .new-way {
+    flex-direction: column;
   }
-  
+
   .resources {
-      grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .hero h1 {
-      font-size: 3rem;
+    font-size: 3rem;
   }
 }
+
 .aboutBody {
-  background-color: green;
+  background-color: purple;
 }
-
-
