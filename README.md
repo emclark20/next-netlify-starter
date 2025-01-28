@@ -48,7 +48,7 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 
 ## Testing
 
-### Included Default Testing
+### Included Dinefault Testing
 
 We’ve included some tooling that helps us maintain these templates. This template currently uses:
 
