@@ -10,17 +10,17 @@ export default function Catalogue() {
         <div class="libraries">
           <div class="row">
             <button id="prev">&#10094;</button>
-            <div id="alphaB"></div>
+            <div class="slideHolder" id="alphaB"></div>
             <button id="next">&#10095;</button>
           </div>
           <div class="row">
             <button id="prev">&#10094;</button>
-            <div id="commonW"></div>
+            <div class="slideHolder"  id="commonW"></div>
             <button id="next">&#10095;</button>
           </div>
           <div class="row">
             <button id="prev">&#10094;</button>
-            <div id="bookM"></div>
+            <div class="slideHolder"  id="bookM"></div>
             <button id="next">&#10095;</button>
           </div>
         </div>

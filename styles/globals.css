@@ -188,7 +188,7 @@ footer {
     width: 100%;
     border: 1px solid #26293874;
 }
-#alphaB {
+.slideHolder {
   display: flex;
   flex-direction: row;
   gap: 1rem; 
