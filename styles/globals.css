@@ -196,3 +196,12 @@ footer {
   scroll-behavior: smooth;
   width: 100%;
 }
+.camera-view {
+  align-items: center;
+    justify-content: center;
+    grid-column: 2;
+    width: 50%;
+    height: 100%;
+    border: 1px solid var(--regBlue);
+    margin: 2rem 2rem;
+}
