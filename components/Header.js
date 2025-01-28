@@ -7,7 +7,7 @@
         <a href="#">Start Learning</a>
     </div>
     <img src="/api/placeholder/100/40" alt="SignIE Logo"/>
-    <a href="#" class="sign-in-btn">Sign In TEST</a>
+    <a href="signUp" class="sign-in-btn">Sign In TEST</a>
 </nav> )
   }
 
