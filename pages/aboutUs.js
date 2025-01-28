@@ -2,7 +2,8 @@ import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer.js'
 export default function About() {
-  return (
+  return ( <div>
+    <Header/>
   <div class="aboutBody">
    
         <h1>SignIE</h1> 
@@ -42,5 +43,6 @@ export default function About() {
                     </p>
                     <p>By keeping accessibility and education at the forefront, we can ensure that these values are present in every aspect of SignIE allowing anyone and everyone to learn ASL. Because that&apos;s what SignIE is all about.
                     </p>
+  </div>
   </div>
   )}
