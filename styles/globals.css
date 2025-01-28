@@ -168,7 +168,7 @@ footer {
   display: grid;
   grid-template-columns: auto, auto;
   height: 35rem;
-  margin: 2rem 3rem;
+  margin: 2rem;
   padding: 1rem;
 
   gap: 8rem;
@@ -178,6 +178,7 @@ footer {
   grid-template-rows: auto, auto, auto;
   gap: 1rem;
   float: left;
+  width: 50%;
 }
 .row {
   display: flex;
