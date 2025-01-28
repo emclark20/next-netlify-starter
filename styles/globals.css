@@ -201,8 +201,12 @@ footer {
   align-items: center;
     justify-content: center;
     grid-column: 2;
-    width: 50%;
+    width: 60%;
     height: 100%;
     border: 1px solid var(--navy);
+
+    padding: 5rem;
     margin: 2rem 2rem;
+
+    float: left;
 }
