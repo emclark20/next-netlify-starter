@@ -1,0 +1,32 @@
+import Head from "next/head";
+import Header from "@components/Header";
+import Footer from "@components/Footer";
+
+export default function Catalogue() {
+  return (
+    <div>
+      <Header />
+      <div class="container">
+        <div class="libraries">
+          <div class="row1">
+            <button id="prev">&#10094;</button>
+            <div id="alphaB"></div>
+            <button id="next">&#10095;</button>
+          </div>
+          <div class="row2">
+            <button id="prev">&#10094;</button>
+            <div id="commonW"></div>
+            <button id="next">&#10095;</button>
+          </div>
+          <div class="row2">
+            <button id="prev">&#10094;</button>
+            <div id="bookM"></div>
+            <button id="next">&#10095;</button>
+          </div>
+        </div>
+        <div class="camera-view"></div>
+      </div>
+      <Footer />
+    </div>
+  );
+}
