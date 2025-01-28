@@ -5,9 +5,10 @@
         <a href="#">Home</a>
         <a href="aboutUs">About</a>
         <a href="#">Start Learning</a>
+        <a href="signUp">SignUP</a>
     </div>
     <img src="/api/placeholder/100/40" alt="SignIE Logo"/>
-    <a href="signUp" class="sign-in-btn">Sign In TEST</a>
+    <a href="signUp.js" class="sign-in-btn">Sign In TEST</a>
 </nav> )
   }
 
