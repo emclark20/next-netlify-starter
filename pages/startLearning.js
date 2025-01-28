@@ -8,17 +8,17 @@ export default function Catalogue() {
       <Header />
       <div class="container">
         <div class="libraries">
-          <div class="row1">
+          <div class="row">
             <button id="prev">&#10094;</button>
             <div id="alphaB"></div>
             <button id="next">&#10095;</button>
           </div>
-          <div class="row2">
+          <div class="row">
             <button id="prev">&#10094;</button>
             <div id="commonW"></div>
             <button id="next">&#10095;</button>
           </div>
-          <div class="row2">
+          <div class="row">
             <button id="prev">&#10094;</button>
             <div id="bookM"></div>
             <button id="next">&#10095;</button>

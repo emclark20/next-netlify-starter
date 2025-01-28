@@ -161,3 +161,38 @@ footer {
 .aboutBody {
   background-color: purple;
 }
+
+/*for the catalogue carousel thingg*/
+
+.container {
+  display: grid;
+  grid-template-columns: auto, auto;
+  margin: 2rem 3rem;
+  padding: 1rem;
+
+
+}
+.libraries {
+  display: grid;
+  grid-template-rows: auto, auto, auto;
+  gap: 1rem;
+  float: left;
+}
+.row {
+  display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+    padding: 3%;
+    width: 100%;
+    border: 1px solid #26293874;
+}
+#alphaB {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem; 
+  overflow: hidden;
+  scroll-behavior: smooth;
+  width: 100%;
+}
