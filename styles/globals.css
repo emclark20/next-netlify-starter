@@ -135,12 +135,35 @@ nav {
   border-radius: 50%;
 }
 
+/* footer styles */
 footer {
   background-color: var(--navy);
   color: var(--white);
   padding: 2rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+
+.footer-logo {
+  display: flex;
+  color: #939EA4;
+
+}
+
+.footer-links {
+  color: #939EA4;
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-links a:link {
+  color: #939EA4;
+  text-decoration: none;
+}
+
+/* end footer styles */
 
 @media (max-width: 768px) {
 
