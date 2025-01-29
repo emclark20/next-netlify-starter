@@ -5,10 +5,10 @@ import Image from 'next/image'
       <div class="nav-links">
           <Link href="/">Home</Link>
           <Link href="/aboutUs">About Us</Link>
-          <a href="startLearning">Start Learning</a>
-          <Link href="/signUp">Sign In</Link>
+          <Link href="/practice">Start Learning</Link>
+          
       </div>
       <Image src="/assets/primaryLogoWhite.png" width={149.28} height={42.05} alt="Webcam" />
-      <a href="signUp.js" class="sign-in-btn">Sign In</a>
+      <Link href="/signUp" class="sign-in-btn">Sign In</Link>
   </nav> )
     }

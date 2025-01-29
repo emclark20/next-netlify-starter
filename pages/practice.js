@@ -1,6 +1,8 @@
 // pages/practice.js
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import Header from '@components/Header';
+import Footer from '@components/Footer';
 
 
 // Card Component
@@ -128,6 +130,8 @@ const PracticePage = () => {
   const alphabetLetters = Array.from('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
 
   return (
+    <div>
+      <Header />
     <div className="practice-container">
       <div className="practice-grid">
         <div className="libraries-container">
@@ -172,7 +176,7 @@ const PracticePage = () => {
           <Camera />
         </div>
       </div>
-    </div>
+    </div></div>
   );
 };
 
