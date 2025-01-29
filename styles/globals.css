@@ -171,9 +171,6 @@ footer {
 /*CSS FOR ABOUT PAGE DONE BY KAREN*/
 
 .aboutBody {
-  background-color: orange;
-}
-.aboutBody {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
