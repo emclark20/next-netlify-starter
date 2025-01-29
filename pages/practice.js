@@ -1,6 +1,7 @@
 // pages/practice.js
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+
 
 // Card Component
 const Card = ({ type, content, href }) => {
@@ -60,15 +61,22 @@ const Camera = () => {
 // Card Section Component
 const CardSection = ({ title, cards }) => {
   const scrollContainerRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const scroll = (direction) => {
+    const newIndex = direction === 'left' 
+      ? Math.max(0, currentIndex - 3)
+      : Math.min(cards.length - 3, currentIndex + 3);
+    
+    setCurrentIndex(newIndex);
+    
     const container = scrollContainerRef.current;
-    const scrollAmount = 300;
-    container.scrollBy({
-      left: direction === 'left' ? -scrollAmount : scrollAmount,
-      behavior: 'smooth'
-    });
+    container.style.transform = `translateX(-${newIndex * (100/3)}%)`;
   };
+
+  const visibleCards = cards.slice(currentIndex, currentIndex + 3);
+  const canScrollLeft = currentIndex > 0;
+  const canScrollRight = currentIndex + 3 < cards.length;
 
   return (
     <div className="card-section">
@@ -82,24 +90,33 @@ const CardSection = ({ title, cards }) => {
         </Link>
       </div>
       <div className="card-scroller">
-        <button 
-          onClick={() => scroll('left')}
-          className="scroll-button left"
-        >
-          ←
-        </button>
+        {canScrollLeft && (
+          <button 
+            onClick={() => scroll('left')}
+            className="scroll-button left"
+            aria-label="Scroll left"
+          >
+            ←
+          </button>
+        )}
         <div 
           ref={scrollContainerRef}
           className="scroll-container"
+          style={{
+            transition: 'transform 0.3s ease-in-out'
+          }}
         >
-          {cards}
+          {visibleCards}
         </div>
-        <button 
-          onClick={() => scroll('right')}
-          className="scroll-button right"
-        >
-          →
-        </button>
+        {canScrollRight && (
+          <button 
+            onClick={() => scroll('right')}
+            className="scroll-button right"
+            aria-label="Scroll right"
+          >
+            →
+          </button>
+        )}
       </div>
     </div>
   );
@@ -107,18 +124,21 @@ const CardSection = ({ title, cards }) => {
 
 // Main Practice Page
 const PracticePage = () => {
+  // Create an array of alphabet letters
+  const alphabetLetters = Array.from('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+
   return (
     <div className="practice-container">
       <div className="practice-grid">
         <div className="libraries-container">
           <CardSection
             title="Alphabet Library"
-            cards={['A', 'B', 'C'].map(letter => (
+            cards={alphabetLetters.map(letter => (
               <Card
                 key={letter}
                 type="Alphabet"
                 content={letter}
-                href={`/learn/alphabet/${letter}`}
+                href={`/learn/alphabet/${letter.toLowerCase()}`}
               />
             ))}
           />
