@@ -1,3 +1,5 @@
+import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Footer() {
   return (
@@ -5,12 +7,12 @@ export default function Footer() {
       <footer class="footer">
         <div class="footer-logo">
           <p>©2025 SignIE</p>
-          <img class="footer-logo-image" src="/api/placeholder/100/40" alt="SignIE Logo" />
+          <Image class="footer-logo-image" src="" alt="SignIE Logo" width={200} height={100} />
         </div>
         <div class="footer-links">
-          <a href="#">Home</a>
-          <a href="#">About</a>
-          <a href="#">Contact</a>
+          <Link href="#">Home</Link>
+          <Link href="#">About</Link>
+          <Link href="#">Contact</Link>
         </div>
       </footer>
     </>
