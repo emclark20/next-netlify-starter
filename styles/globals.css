@@ -149,7 +149,7 @@ nav {
   border-radius: 50%;
 }
 
-/* footer styles */
+/* Begin footer styles */
 footer {
   font-family: var(--font-nunito), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background-color: var(--navy);
@@ -159,6 +159,10 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.footer-logo-image {
+  align-self: center;
 }
 
 .footer-logo {
@@ -173,7 +177,8 @@ footer {
   gap: 2rem;
 }
 
-.footer-links a:link {
+.footer-links a:link,
+a:visited {
   color: #939EA4;
   text-decoration: none;
 }
