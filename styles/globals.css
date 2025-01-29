@@ -557,3 +557,35 @@ footer {
   outline: 2px solid #03A9F4;
   outline-offset: 2px;
 }
+
+/* andres footer */
+/* Begin footer styles */
+footer {
+  font-family: var(--font-nunito), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--navy);
+  color: var(--white);
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.footer-logo-image {
+  align-self: center;
+}
+.footer-logo {
+  display: flex;
+  color: #939EA4;
+  border-bottom: 1px solid #939EA4;
+}
+.footer-links {
+  color: #939EA4;
+  display: flex;
+  gap: 2rem;
+}
+.footer-links a:link,
+a:visited {
+  color: #939EA4;
+  text-decoration: none;
+}
+/* end footer styles */
