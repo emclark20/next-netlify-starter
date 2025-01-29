@@ -49,10 +49,10 @@ export default function Home() {
         <div class="new-way-content">
             <h2>A New Way To Learn</h2>
             <p>Our mission is to empower individuals to learn and communicate in American Sign Language through innovative technology. We strive to provide an accessible, effective, and engaging platform that fosters language acquisition, cultural understanding, and inclusion. By combining cutting-edge computer vision with personalized instruction, we aim to bridge the communication gap and create a more equitable world for ASL learners and users.</p>
-        </div>   
+        </div>  
+        <Image src="/assets/primaryLogoBlack.png" width={500} height={155} alt="Logo of SignIE" /> 
     </section>
-        <Image src="/assets/primaryLogoBlack.png" width={500} height={155} alt="Logo of SignIE" />
-        <Image src="/assets/webcamAngled.png" width={300} height={370} alt="Webcam looking to the left" />
+       <Image src="/assets/webcamAngled.png" width={300} height={370} alt="Webcam looking to the left" />  
     <section class="team-section">
         <h2>Meet The Team</h2>
         <p>Our team at SignIE is committed to fostering a collaborative and inclusive environment where everyone feels valued and empowered. We prioritize open communication, respect for diverse perspectives, and a shared dedication to excellence. Our team values are the foundation upon which we build strong relationships, achieve our goals, and make a positive impact.</p>
