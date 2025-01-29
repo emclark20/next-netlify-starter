@@ -179,7 +179,7 @@ footer {
   gap: 1rem;
   float: left;
   width: 150%;
-  margin-right: 3rem;
+  margin-right: 28rem;
 }
 .row {
   display: flex;
@@ -203,12 +203,22 @@ footer {
   align-items: center;
     justify-content: center;
     grid-column: 2;
-    width: 40%;
+    width: 60%;
     height: 100%;
     border: 1px solid var(--navy);
+    float: right;
+    margin-left: 15rem;
+    padding: 12rem;
+}
+#prev, #next {
+  height: 100%;
+  background-color: var(--white);
+  color: var(--navy);
+  font-size: 303%;
+  padding: 2%;
+  border: 0.5 solid var(--navy);
+  border-radius: 6px;
+}
+@media screen(max-width: 750px) {
 
-    padding: 5rem;
-   margin-left: 2rem;
-
-    float: left;
 }
