@@ -1,44 +1,175 @@
 import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
-export default function SignUp() {
-  return ( <div>
-    <Header/>
 
 
-    <main>
-        <h1>Login</h1>
-        <form>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" required></input>
+
+
+
+import React, { useState } from 'react';
+
+const AuthPage = () => {
+  const [isLogin, setIsLogin] = useState(true);
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+    firstName: '',
+    username: '',
+    confirmPassword: ''
+  });
+
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Add your authentication logic here
+    console.log('Form submitted:', formData);
+  };
+
+  const toggleForm = () => {
+    setIsLogin(!isLogin);
+    setFormData({
+      email: '',
+      password: '',
+      firstName: '',
+      username: '',
+      confirmPassword: ''
+    });
+  };
+
+  return (
+    <div className="auth-container">
+      {/* Navigation */}
+      <Header/>
+
+      {/* Main Content */}
+      <main className="auth-main">
+        <h1 className="auth-title">
+          {isLogin ? 'Login' : 'Sign Up'}
+        </h1>
+
+        <form onSubmit={handleSubmit} className="auth-form">
+          {!isLogin && (
+            <>
+              <div className="form-group">
+                <label htmlFor="firstName">First Name</label>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="username">Username</label>
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  value={formData.username}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+            </>
+          )}
+          
+          <div className="form-group">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+
+          {!isLogin && (
+            <div className="form-group">
+              <label htmlFor="confirmPassword">Confirm Password</label>
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                value={formData.confirmPassword}
+                onChange={handleInputChange}
+                required
+              />
             </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" required></input>
-                <a href="/forgot-password" class="forgot-password">Forgot Password?</a>
-            </div>
-            <div>
-                <button type="submit" class="submit-btn">Submit</button>
-                <button type="button" class="google-btn">
-                    Login with Google
+          )}
+
+          {isLogin && (
+            <a href="/forgot-password" className="forgot-password">
+              Forgot Password?
+            </a>
+          )}
+
+          <button type="submit" className="submit-button">
+            Submit
+          </button>
+          
+          {isLogin && (
+            <button type="button" className="google-button">
+              Login with Google
+            </button>
+          )}
+
+          <div className="auth-toggle">
+            {isLogin ? (
+              <p>
+                No Account?{' '}
+                <button type="button" onClick={toggleForm}>
+                  Sign Up here!
                 </button>
-            </div>
+              </p>
+            ) : (
+              <p>
+                Already have an account?{' '}
+                <button type="button" onClick={toggleForm}>
+                  Login here!
+                </button>
+              </p>
+            )}
+          </div>
         </form>
-        <p class="signup-prompt">No Account? <a href="/signup">Sign Up here!</a></p>
-    </main>
+      </main>
 
-    <footer>
+      {/* Footer */}
+      <footer className="auth-footer">
         <p>&copy; 2025 SignIE</p>
-        <div class="footer-links">
-            <a href="/home">Home</a>
-            <a href="/about">About</a>
-            <a href="/contact">Contact</a>
+        <div className="footer-links">
+          <a href="/home">Home</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
         </div>
-        <div class="social-links">
-            <a href="#" aria-label="TikTok">TikTok</a>
-            <a href="#" aria-label="Instagram">Instagram</a>
+        <div className="social-links">
+          <a href="#" aria-label="TikTok">TikTok</a>
+          <a href="#" aria-label="Instagram">Instagram</a>
         </div>
-    </footer>
-</div>)
-}
+      </footer>
+    </div>
+  );
+};
+
+export default AuthPage;

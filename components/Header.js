@@ -4,6 +4,7 @@ import Link from 'next/link'
     <div class="nav-links">
         <Link href="/">HOME</Link>
         <Link href="/aboutUs">About Us</Link>
+        <Link href="/signUp">Sign In</Link>
         <a href="aboutUs">About</a>
         <a href="startLearning">Start Learning</a>
         <a href="signUp">SignUP</a>
