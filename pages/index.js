@@ -52,6 +52,7 @@ export default function Home() {
             <p>Our mission is to empower individuals to learn and communicate in American Sign Language through innovative technology. We strive to provide an accessible, effective, and engaging platform that fosters language acquisition, cultural understanding, and inclusion. By combining cutting-edge computer vision with personalized instruction, we aim to bridge the communication gap and create a more equitable world for ASL learners and users.</p>
         </div>  
         <Image src="/assets/primaryLogoBlack.png" width={500} height={155} alt="Logo of SignIE" /> 
+        <div class="indexTriangleBotton"></div>
     </section>
        <Image src="/assets/webcamAngled.png" width={300} height={370} alt="Webcam looking to the left" />  
     <section class="team-section">

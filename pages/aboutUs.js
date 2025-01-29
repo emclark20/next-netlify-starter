@@ -18,8 +18,9 @@ export default function About() {
                     <p>With the focus on the user to figure out if they are doing so correctly, not the application, we saw what needed to be done.</p>
 
         {/*This are the divs for the graphical elements that we designed on the figma*/}
-        <div class="triangle-decorator triangle-blue"></div>
-        <div class="triangle-decorator triangle-light"></div>
+        <div class="triangle-decorator triangle-top"></div>
+        <Image src="/assets/webcamAngledLookingLeft.png" width={400} height={470} alt="Webcam looking left" /> 
+        <div class="triangle-decorator triangle-middle"></div>
     
             <h2>Meet the Team</h2>
         {/*There has to be a team grid becuase of the positioning of stuff*/}
