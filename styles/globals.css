@@ -219,6 +219,45 @@ footer {
   border: 0.5 solid var(--navy);
   border-radius: 6px;
 }
-@media screen(max-width: 750px) {
+/* Learning ASL styling*/
+.learningContainer {
+  display: grid;
+  grid-template-columns: 80%, 20%;
+  grid-template-rows: 70%, 30%;
+  margin: 2rem 8rem 12rem 8rem;
+  gap: 1rem;
+}
+.video {
+  grid-column: 1;
+  grid-row: 1;
+  float: left;
 
+  width: 90%;
+  height: 70%;
+  padding: 11rem;
+  border: 1px solid var(--navy);
+}
+.catalogueA {
+  grid-column: 1;
+  grid-row: 2;
+  float: left;
+
+  margin-top: 1%;
+  width: 90%;
+  height: 80%;
+}
+h2 .catalogueA{
+  margin: 1rem;
+}
+.cv-view {
+  grid-column: 2;
+  grid-row: 1/span 3;
+  
+  width: 100%;
+  height: 95%;
+  border: 1px solid var(--navy);
+
+  padding-left: 5%;
+  margin-right: 95%;
+  float: right;
 }

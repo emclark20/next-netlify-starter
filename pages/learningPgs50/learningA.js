@@ -9,6 +9,7 @@ export default function learningA() {
       <div class="learningContainer">
         <div class="video"></div>
         <div class="catalogueA">
+          <h2>Alphabet Library</h2>
           <div class="library">
             <div class="row">
               <button id="prev">&#10094;</button>
