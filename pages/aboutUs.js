@@ -3,14 +3,19 @@ import Header from '@components/Header'
 import Footer from '@components/Footer.js'
 import Image from 'next/image'
 export default function About() {
-  return ( <div>
+  return ( <div className="wrap">
     <Header/>
-    <div class="aboutBody">
-   
-   <h1>Get to Know Us</h1> 
-   <Image src="/assets/primaryLogoBlue.png" width={500} height={155} alt="Logo of SignIE" /> 
-           <h3> Working to provide an interactive experience for individuals to master the basics of American Sign Language
-           </h3> 
+    <div className="aboutBody">
+      <h1>THE MISSION</h1>
+      <Image 
+        src="/assets/primaryLogoBlue.png" 
+        width={500} 
+        height={155} 
+        alt="SignIE Logo" 
+        priority
+      />
+      <h3>Working to provide an interactive experience for individuals to master the basics of American Sign Language</h3>
+      <div className="triangle-decorator triangle-top"></div>
                <p> SignIE is an innovative ASL teaching site that uses an interactive online environment to grade our users when they practice signing. Through the use of Computer Vision and Machine Learning, we created an online experience where users get a similar quality of live feedback that they would receive in a class, or with a private tutor. 
                </p>
                <p> SignIE aims to boost users' vocabulary and grammar and set a solid foundation for their ASL learning experience. We believe that the standard of technology is accessibility.</p>
@@ -19,8 +24,10 @@ export default function About() {
 
    {/*This are the divs for the graphical elements that we designed on the figma*/}
    <div class="triangle-decorator triangle-top"></div>
-   <Image src="/assets/webcamAngledLookingLeft.png" width={400} height={470} alt="Webcam looking left" /> 
-   <div class="triangle-decorator triangle-middle"></div>
+   <div class="firstImageContainer">
+        <Image src="/assets/webcamAngledLookingLeft.png" width={400} height={470} alt="Webcam looking left"  class="firstImageAboutUs"/> 
+    </div> 
+  <div class="triangle-decorator triangle-middle"></div>
 
        <h2>Meet the Team</h2>
    {/*There has to be a team grid becuase of the positioning of stuff*/}

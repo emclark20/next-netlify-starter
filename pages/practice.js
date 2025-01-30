@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Header from '@components/Header';
 import Footer from '@components/Footer';
 import Flashcard from '@components/Flashcard';
+import TutorialModal from '@components/Tutorial';
 
 
 // Card Component
@@ -132,7 +133,9 @@ const PracticePage = () => {
 
   return (
     <div>
+      <TutorialModal />
       <Header />
+      
     <div className="practice-container">
       <div className="practice-grid">
         <div className="libraries-container">
@@ -143,7 +146,8 @@ const PracticePage = () => {
                 key={letter}
                 type="Alphabet"
                 content={letter}
-                href={`/learn/alphabet/${letter.toLowerCase()}`}
+                /*href={`/learn/alphabet/${letter.toLowerCase()}`}*/
+                href={'/learningPgs50/learningA'}
               />
             ))}
           />

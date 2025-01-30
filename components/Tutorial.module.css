@@ -1,0 +1,98 @@
+/* Modal Overlay - Creates a semi-transparent black background that covers the entire screen */
+.modalOverlay {
+    position: fixed;  /* Fixed position relative to the viewport */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);  /* Semi-transparent black */
+    display: flex;  /* Use flexbox for centering */
+    align-items: center;  /* Center vertically */
+    justify-content: center;  /* Center horizontally */
+    z-index: 1000;  /* Ensure modal appears above other content */
+  }
+  
+  /* Modal Content - The white container that holds the tutorial content */
+  .modalContent {
+    background-color: white;
+    border-radius: 0.5rem;  /* Rounded corners */
+    padding: 1.5rem;  /* Internal spacing */
+    max-width: 28rem;  /* Maximum width of the modal */
+    width: 90%;  /* Take up 90% of container width until max-width */
+    position: relative;  /* For positioning close button */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Subtle shadow effect */
+  }
+  
+  /* Close Button - The X button in the top-right corner */
+  .closeButton {
+    position: absolute;  /* Position relative to modalContent */
+    top: 1rem;
+    right: 1rem;
+    background: none;  /* Remove default button background */
+    border: none;
+    color: #6B7280;  /* Gray color */
+    cursor: pointer;  /* Show pointer on hover */
+    padding: 0.5rem;
+    transition: color 0.2s;  /* Smooth color transition on hover */
+  }
+  
+  .closeButton:hover {
+    color: #374151;  /* Darker gray on hover */
+  }
+  
+  /* Progress Container - Holds the progress indicator bars */
+  .progressContainer {
+    display: flex;  /* Layout bars horizontally */
+    gap: 0.25rem;  /* Space between progress bars */
+    margin-bottom: 1rem;
+  }
+  
+  /* Individual Progress Bar */
+  .progressBar {
+    height: 0.25rem;  /* Height of each bar */
+    flex: 1;  /* Each bar takes equal width */
+    background-color: #E5E7EB;  /* Light gray background */
+    border-radius: 9999px;  /* Fully rounded ends */
+    transition: background-color 0.3s;  /* Smooth transition for color change */
+  }
+  
+  /* Active Progress Bar */
+  .progressActive {
+    background-color: #3B82F6;  /* Blue color for active state */
+  }
+  
+  /* Content Container - Holds the title and description */
+  .contentContainer {
+    margin-bottom: 2rem;  /* Space between content and next button */
+  }
+  
+  /* Title Styling */
+  .title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #111827;
+  }
+  
+  /* Description Text */
+  .description {
+    color: #4B5563;
+    line-height: 1.5;
+  }
+  
+  /* Next Button Styling */
+  .nextButton {
+    width: 100%;  /* Full width button */
+    background-color: #3B82F6;  /* Blue background */
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;  /* Smooth background color transition */
+  }
+  
+  .nextButton:hover {
+    background-color: #2563EB;  /* Darker blue on hover */
+  }

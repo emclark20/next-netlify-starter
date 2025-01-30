@@ -1,0 +1,134 @@
+/* ContentSection.module.css */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .contentLayout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .videoContainer {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+  }
+  
+  .playButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #0096FF;
+    border-radius: 50%;
+    padding: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .navigationButtons {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .webcamContainer {
+    background-color: #FFDAB9; /* Peach color for webcam container */
+    border-radius: 8px;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .webcamVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .webcamFallback {
+    text-align: center;
+    padding: 1rem;
+    color: #666;
+  }
+  
+  .librarySection {
+    width: 100%;
+  }
+  
+  .libraryHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .libraryHeader h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .seeAll {
+    color: #0096FF;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .carouselContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .carouselButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+  }
+  
+  .rightButton {
+    right: 0;
+  }
+  
+  .carouselTrack {
+    display: flex;
+    gap: 1rem;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    padding: 0.5rem 0;
+  }
+  
+  .wordCard {
+    min-width: 200px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .cardHeader {
+    background-color: #1a1b41;
+    color: white;
+    padding: 0.5rem;
+    text-align: center;
+  }
+  
+  .cardContent {
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.25rem;
+  }
