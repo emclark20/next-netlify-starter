@@ -156,18 +156,7 @@ const AuthPage = () => {
       </main>
 
       {/* Footer */}
-      <footer className="auth-footer">
-        <p>&copy; 2025 SignIE</p>
-        <div className="footer-links">
-          <a href="/home">Home</a>
-          <a href="/about">About</a>
-          <a href="/contact">Contact</a>
-        </div>
-        <div className="social-links">
-          <a href="#" aria-label="TikTok">TikTok</a>
-          <a href="#" aria-label="Instagram">Instagram</a>
-        </div>
-      </footer>
+      <Footer/>
     </div>
   );
 };

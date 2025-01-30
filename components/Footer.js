@@ -11,8 +11,7 @@ export default function Footer() {
         <p>©2025 SignIE</p>
         <div className="footer-links">
           <Link href="#">Home</Link>
-          <Link href="#">About</Link>
-          <Link href="#">Contact</Link>
+          <Link href="aboutUs">About</Link>
         </div>
       </div>
     </footer>

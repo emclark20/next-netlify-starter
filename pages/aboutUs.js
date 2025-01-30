@@ -44,5 +44,6 @@ export default function About() {
                     <p>By keeping accessibility and education at the forefront, we can ensure that these values are present in every aspect of SignIE allowing anyone and everyone to learn ASL. Because that&apos;s what SignIE is all about.
                     </p>
   </div>
+  <Footer/>
   </div>
   )}
