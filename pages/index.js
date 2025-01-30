@@ -75,7 +75,7 @@ export default function Home() {
             <Image src="/assets/avatar.png" width={100} height={100} alt="placeholder for team member headshot" />
             </div>
         </div>
-        <a href="#" class="start-btn">About Us</a>
+        <Link href="/aboutUs" class="start-btn">About Us</Link>
     </section>
     <Footer/>    </div>
     
