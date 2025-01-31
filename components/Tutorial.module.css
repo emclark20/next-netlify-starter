@@ -10,6 +10,7 @@
     align-items: center;  /* Center vertically */
     justify-content: center;  /* Center horizontally */
     z-index: 1000;  /* Ensure modal appears above other content */
+    font-family: var(--font-league-spartan);
   }
   
   /* Modal Content - The white container that holds the tutorial content */

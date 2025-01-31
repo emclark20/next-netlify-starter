@@ -51,3 +51,16 @@ const Flashcard = () => {
 };
 
 export default Flashcard;
+
+// Usage Example:
+/*
+import FlashCard from './components/FlashCard';
+
+export default function Page() {
+  return (
+    <FlashCard 
+      frontContent="What is the capital of France?"
+      videoUrl="/path-to-your-video.mp4"
+    />
+  );
+} */

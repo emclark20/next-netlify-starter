@@ -735,7 +735,7 @@ footer {
 
 
 /*style for about us clark*/
-/* about.css */
+/* about.css 
 
 .about-container {
   max-width: 1200px;
@@ -743,7 +743,7 @@ footer {
   padding: 20px;
 }
 
-/* Mission Section */
+/* Mission Section 
 .mission-section {
   margin-bottom: 60px;
 }
@@ -781,7 +781,7 @@ footer {
   max-width: 800px;
 }
 
-/* Team Section */
+/* Team Section 
 .team-section {
   background-color: #f5f5f5;
   padding: 60px 0;
@@ -841,7 +841,7 @@ footer {
   font-size: 14px;
 }
 
-/* Process Section */
+/* Process Section 
 .process-section {
   padding: 60px 20px;
 }
@@ -885,7 +885,7 @@ footer {
   margin-bottom: 20px;
 }
 
-/* Responsive Design */
+/* Responsive Design 
 @media (max-width: 768px) {
   .process-content {
       grid-template-columns: 1fr;
@@ -915,6 +915,7 @@ footer {
       font-size: 28px;
   }
 } 
+  */
 /* THIS IS A TEST AND ITS WEIRD AND ITS FOR THE FUTURE FUNCTIONALITY OF THE FLASHCARDS BEING FLIPPABLE, WEIRD FORMAT WEIRD SPELLING WEIRD CAPITALIZATION IDK */
 
 .Flashcard-Container-Test{

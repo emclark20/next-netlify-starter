@@ -4,7 +4,7 @@ import Image from 'next/image'
     return (<nav>
       <div class="nav-links">
           <Link href="/">Home</Link>
-          <Link href="/aboutUs">About Us</Link>
+          <Link href="/aboutUs5">About Us</Link>
           <Link href="/practice">Start Learning</Link>
           
       </div>
