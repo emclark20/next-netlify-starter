@@ -1,3 +1,5 @@
+/* THIS CODE FROM HERE TO NAV IS FOR OUR BODY OF EACH PAGE AND MAKES FONTS INCLUDED FOR MOST OBJECTS*/
+
 * {
   margin: 0;
   padding: 0;
@@ -47,7 +49,7 @@ nav {
   text-decoration: none;
   justify-self: end;
 }
-
+/* INDEX PAGE CSS */
 .hero {
   display: flex;
   padding: 4rem 2rem;
@@ -77,6 +79,7 @@ nav {
   border-radius: 4px;
   text-decoration: none;
   display: inline-block;
+  font-family:  var(--font-league-spartan), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .webcam-icon {
@@ -146,12 +149,6 @@ nav {
   border-radius: 50%;
 }
 
-footer {
-  background-color: var(--navy);
-  color: var(--white);
-  padding: 2rem;
-  text-align: center;
-}
 
 @media (max-width: 768px) {
 
@@ -170,97 +167,7 @@ footer {
 }
 
 
-/* THIS IS WHERE ABOUT PAGE STARTS */
-.aboutBody {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 2rem;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Header section */
-.aboutBody h1 {
-  color: #1a237e;
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  margin-left: 15%;
-}
-
-/* Mission section */
-.aboutBody > h3:first-of-type {
-  max-width: 800px;
-  margin: 1.5rem 0 2rem;
-  font-size: 1.25rem;
-  line-height: 1.5;
-  color: #333;
-  margin-left: 15%;
-}
-
-/* Logo styling */
-.aboutBody img {
-  max-width: 100%;
-  height: auto;
-  margin: 2rem 0;
-}
-
-/* Main text content */
-.aboutBody p {
-  max-width: 65%;
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-  color: #424242;
-  position: relative;
-  z-index: 1;
-}
-
-/* Right triangle decorator */
-.triangle-decorator.triangle-top {
-  background-color: #5CBEE9;
-  width: 150%;
-  height: 150%;
-  position: absolute;
-  top: -20%;
-  right: -65%;
-  transform: rotate(-15deg);
-  z-index: -1;
-  clip-path: polygon(100% 0, 0% 100%, 100% 100%);
-} 
-
-/* Container adjustments */
-.wrap {
-  position: relative;
-  width: 100%;
-  overflow-x: hidden;
-  background-color: white;
-}
-
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-  .aboutBody p {
-    max-width: 100%;
-  }
-  
-  .triangle-decorator.triangle-top {
-    width: 120%;
-    right: -50%;
-  }
-}
-
-@media (max-width: 768px) {
-  .triangle-decorator.triangle-top {
-    display: none;
-  }
-}
-.firstImageContainer{
-  position: absolute;
-  right: -1px;
-  top: 15%; /* Adjust this value to align with your text */
-  transform: translateY(-50%);
-  width: 400px; /* Adjust based on your image size */
-  /*z-index: -1; /* This ensures it stays behind text if they overlap */
-}
-
+/* END OF INDEX PAGE CSS */
 
 /* practice page css
 /* styles/practice.css */
