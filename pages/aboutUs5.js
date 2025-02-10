@@ -14,7 +14,7 @@ const AboutPage = () => {
           <h1>THE MISSION</h1>
           <div className="logo-container">
             <Image 
-              src="/assets/primaryLogoBlue.png" 
+              src="/assets/primaryLogoBlue.svg" 
               width={500} 
               height={155} 
               alt="SignIE Logo" 
@@ -26,7 +26,7 @@ const AboutPage = () => {
             Working to provide an interactive experience for individuals to master the basics of American Sign Language
           </h2>
           <Image 
-            src="/assets/webcamAngledLookingLeft.png" 
+            src="/assets/webcamAngledLookingLeft.svg" 
             width={400} 
             height={470} 
             alt="Webcam looking left" 
@@ -56,7 +56,7 @@ const AboutPage = () => {
             </div>
 
             <div className="team-card">
-              <Image src="/assets/avatar.png" width={100} height={100} alt="placeholder for team member headshot" className="team-image"/>
+              <Image src="/assets/avatar.svg" width={100} height={100} alt="placeholder for team member headshot" className="team-image"/>
               <div className="team-info">
                 <h3>Emily Clark</h3>
                 <p className="bio">Emily Clark is a web developer who is passionate about communication and accessibility. This project has married both of these passions and has been a joy to work on. Clark worked intimately on designing the architecture of SignIE and is incredibly proud of our final product.</p>
@@ -65,7 +65,7 @@ const AboutPage = () => {
             </div>
 
             <div className="team-card">
-              <Image src="/assets/avatar.png" width={100} height={100} alt="placeholder for team member headshot" className="team-image"/>
+              <Image src="/assets/avatar.svg" width={100} height={100} alt="placeholder for team member headshot" className="team-image"/>
               <div className="team-info">
                 <h3>Patsy Paredes</h3>
                 <p className="bio">Patsy is a dedicated designer with a passion for accessibility and fostering community through thoughtful design. Working on SignIE has allowed her to combine her skills and experiences to create an inclusive platform that empowers users to learn and connect. For Patsy, contributing to a tool that promotes understanding and accessibility has been an incredibly rewarding experience.</p>
@@ -74,7 +74,7 @@ const AboutPage = () => {
             </div>
 
             <div className="team-card">
-              <Image src="/assets/avatar.png" width={100} height={100} alt="placeholder for team member headshot" className="team-image"/>
+              <Image src="/assets/avatar.svg" width={100} height={100} alt="placeholder for team member headshot" className="team-image"/>
               <div className="team-info">
                 <h3>Andres Rodriguez</h3>
                 <p className="bio">Andres Rodriguez is a web developer who is passionate about creating solutions for the hearing impaired and translating audio into more than just closed captions. Andres is passionate about creating equitable solutions for all. His love for development stems from his love for design and building. Andres is excited about creating solutions for the hearing impaired with SignIE as a developer.</p>
@@ -83,7 +83,7 @@ const AboutPage = () => {
             </div>
 
             <div className="team-card">
-              <Image src="/assets/avatar.png" width={100} height={100} alt="placeholder for team member headshot" className="team-image"/>
+              <Image src="/assets/avatar.svg" width={100} height={100} alt="placeholder for team member headshot" className="team-image"/>
               <div className="team-info">
                 <h3>Karen Sanchez Crespo</h3>
                 <p className="bio">Karen Sanchez at her core is a strong designer and communicator. Fluent in 3 languages - not including programming languages! Her passion for SignIE stems from her journey of learning ASL, where she recognized a lack of interactive tools to support her studies. This experience inspired her dedication to the project and its mission to transform ASL education.</p>
