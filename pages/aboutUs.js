@@ -8,7 +8,7 @@ export default function About() {
     <div className="aboutBody">
       <h1>THE MISSION</h1>
       <Image 
-        src="/assets/primaryLogoBlue.png" 
+        src="/assets/primaryLogoBlue.svg" 
         width={500} 
         height={155} 
         alt="SignIE Logo" 
@@ -25,7 +25,8 @@ export default function About() {
    {/*This are the divs for the graphical elements that we designed on the figma*/}
    <div class="triangle-decorator triangle-top"></div>
    <div class="firstImageContainer">
-        <Image src="/assets/webcamAngledLookingLeft.png" width={400} height={470} alt="Webcam looking left"  class="firstImageAboutUs"/> 
+    {/*The images are in svg format so that they are not blurry */}
+        <Image src="/assets/webcamAngledBlue.svg" width={400} height={470} alt="Webcam looking left"  class="firstImageAboutUs"/> 
     </div> 
   <div class="triangle-decorator triangle-middle"></div>
 

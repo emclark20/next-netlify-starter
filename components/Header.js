@@ -8,7 +8,7 @@ import Image from 'next/image'
           <Link href="/practice">Start Learning</Link>
           
       </div>
-      <Image src="/assets/primaryLogoWhite.png" width={149.28} height={42.05} alt="Webcam" />
+      <Image src="/assets/primaryLogoWhite.svg" width={149.28} height={42.05} alt="Webcam" />
       <Link href="/signUp" class="sign-in-btn">Sign In</Link>
   </nav> )
     }
