@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer>
       <div className="footer-logo">
-        <Image src="/assets/primaryLogoWhite.png" width={149.28} height={42.05} alt="SignIE Logo" />
+        <Image src="/assets/primaryLogoWhite.svg" width={149.28} height={42.05} alt="SignIE Logo" />
       </div>
       <div className="footer-container">
         <p>©2025 SignIE</p>
