@@ -29,10 +29,6 @@ export default function Custom404() {
         fontWeight: 'bold',
         textDecoration: 'none',
         color: 'white',
-        ':hover': {
-            backgroundColor: 'rgba(255, 255, 255, 0.2)',
-            transform: 'scale(1.05)',
-          }
       }
     };
   
