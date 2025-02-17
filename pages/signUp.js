@@ -1,19 +1,17 @@
 import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
-
-
-
-
-
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 
 const AuthPage = () => {
+  const router = useRouter();
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
     email: '',
     password: '',
     firstName: '',
+    lastName: '', // Added lastName
     username: '',
     confirmPassword: ''
   });
@@ -25,10 +23,41 @@ const AuthPage = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add your authentication logic here
-    console.log('Form submitted:', formData);
+    
+    if (!isLogin) {
+      try {
+        const response = await fetch('/api/auth/signup', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: formData.email,
+            password: formData.password,
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            username: formData.username,
+          }),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.message || 'Something went wrong');
+        }
+
+        // Redirect to dashboard on success
+        router.push('/dashboard');
+      } catch (error) {
+        console.error('Signup error:', error);
+        // You can add error handling UI here if needed
+      }
+    } else {
+      // Existing login logic here
+      console.log('Form submitted:', formData);
+    }
   };
 
   const toggleForm = () => {
@@ -37,6 +66,7 @@ const AuthPage = () => {
       email: '',
       password: '',
       firstName: '',
+      lastName: '',
       username: '',
       confirmPassword: ''
     });
@@ -44,10 +74,8 @@ const AuthPage = () => {
 
   return (
     <div className="auth-container">
-      {/* Navigation */}
       <Header/>
 
-      {/* Main Content */}
       <main className="auth-main">
         <h1 className="auth-title">
           {isLogin ? 'Login' : 'Sign Up'}
@@ -63,6 +91,17 @@ const AuthPage = () => {
                   id="firstName"
                   name="firstName"
                   value={formData.firstName}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="lastName">Last Name</label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  value={formData.lastName}
                   onChange={handleInputChange}
                   required
                 />
@@ -155,7 +194,6 @@ const AuthPage = () => {
         </form>
       </main>
 
-      {/* Footer */}
       <Footer/>
     </div>
   );

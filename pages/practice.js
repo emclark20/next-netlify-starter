@@ -5,7 +5,8 @@ import Header from '@components/Header';
 import Footer from '@components/Footer';
 import Flashcard from '@components/Flashcard';
 import TutorialModal from '@components/Tutorial';
-
+import Camera from '@components/Camera';
+import styles from './practice.module.css'; 
 
 // Card Component
 const Card = ({ type, content, href }) => {
@@ -22,6 +23,7 @@ const Card = ({ type, content, href }) => {
 };
 
 // Camera Component
+/*
 const Camera = () => {
   const videoRef = useRef(null);
 
@@ -60,7 +62,7 @@ const Camera = () => {
       />
     </div>
   );
-};
+}; */
 
 // Card Section Component
 const CardSection = ({ title, cards }) => {
