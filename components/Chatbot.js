@@ -27,7 +27,7 @@ const ChatBot = () => {
     panel.classList.add("closing");
     setTimeout(() => {
         setIsPressed(false);
-    }; 300);
+    }, 300);
   };
 
   const techOptions = [
