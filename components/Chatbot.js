@@ -79,21 +79,57 @@ const ChatBot = () => {
         {!selectedIssue && !showForm && (
           <div>
             <p>Please Select Your Issue: </p>
-            {techOptions((option) =>(
-                <button key={option.index} onClick={() => handleSubmit(option)}>{option.issue}</button>
+            {techOptions((option) => (
+              <button key={option.index} onClick={() => handleSubmit(option)}>
+                {option.issue}
+              </button>
             ))}
-            
           </div>
         )}
-        {selectedIssue && !showForm &&(
+        {selectedIssue && !showForm && (
+          <div>
             <div>
-                <div>
-                    <h3>{selectedIssue.issue}</h3>
-                    <p>{selectedIssue.solution}</p>
-                </div>
+              <h3>{selectedIssue.issue}</h3>
+              <p>{selectedIssue.solution}</p>
             </div>
+            <div>
+              <p>Did This Help?</p>
+            </div>
+            <div>
+              <button onClick={closeChat}>Yes!</button>
+              <button onClick={() => setShowForm(true)}>
+                No, I need more help
+              </button>
+            </div>
+          </div>
+        )}
+        {showForm && (
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label>What's Going On?</label>
+              <textarea
+                value={customIssue}
+                onChange={(e) => setCustomIssue(e.target.value)}
+                placeholder="Please describe your issue..."
+                required
+              />
+            </div>
+            <div>
+              <button type="submit">Submit</button>
+              <button
+                type="button"
+                onClick={() => {
+                  setShowForm(false);
+                  setSelectedIssue(null);
+                }}
+              >
+                Back
+              </button>
+            </div>
+          </form>
         )}
       </div>
     </div>
   );
 };
+export default ChatBot;
