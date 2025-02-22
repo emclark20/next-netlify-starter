@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styles from "./Chatbot.module.css";
 
 import { X } from "lucide-react";
 
@@ -21,6 +22,12 @@ const ChatBot = () => {
     setIsPressed(false);
     setSelectedIssue(null);
     setShowForm(false);
+
+    const panel = document.querySelector(".chatPanel");
+    panel.classList.add("closing");
+    setTimeout(() => {
+        setIsPressed(false);
+    }; 300);
   };
 
   const techOptions = [
@@ -52,8 +59,8 @@ const ChatBot = () => {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
     console.log("custom issue submitted: ", customIssue);
     setCustomIssue("");
     setShowForm(false);
@@ -68,8 +75,8 @@ const ChatBot = () => {
   if (!isPressed) return null;
 
   return (
-    <div className="chatPanel">
-      <div className="chatContent">
+    <div className={styles.chatPanel}>
+      <div className={styles.chatContent}>
         <div>
           <h2>Technical Support</h2>
           <button onClick={closeChat}>
@@ -79,7 +86,7 @@ const ChatBot = () => {
         {!selectedIssue && !showForm && (
           <div>
             <p>Please Select Your Issue: </p>
-            {techOptions((option) => (
+            {techOptions.map((option) => (
               <button key={option.index} onClick={() => handleSubmit(option)}>
                 {option.issue}
               </button>
@@ -87,7 +94,7 @@ const ChatBot = () => {
           </div>
         )}
         {selectedIssue && !showForm && (
-          <div>
+          <div className={styles.solution-container}>
             <div>
               <h3>{selectedIssue.issue}</h3>
               <p>{selectedIssue.solution}</p>
@@ -95,9 +102,9 @@ const ChatBot = () => {
             <div>
               <p>Did This Help?</p>
             </div>
-            <div>
-              <button onClick={closeChat}>Yes!</button>
-              <button onClick={() => setShowForm(true)}>
+            <div className={styles.response-buttons}>
+              <button className={styles.yes-button} onClick={closeChat}>Yes!</button>
+              <button className={styles.no-button} onClick={() => setShowForm(true)}>
                 No, I need more help
               </button>
             </div>
@@ -109,7 +116,7 @@ const ChatBot = () => {
               <label>What's Going On?</label>
               <textarea
                 value={customIssue}
-                onChange={(e) => setCustomIssue(e.target.value)}
+                onChange={(event) => setCustomIssue(event.target.value)}
                 placeholder="Please describe your issue..."
                 required
               />

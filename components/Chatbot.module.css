@@ -1,0 +1,186 @@
+/* Chatbot container animations and styles */
+.chatPanel {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    width: 24rem;
+    transform-origin: bottom right;
+    animation: slideIn 0.3s ease-out;
+    z-index: 1000;
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: scale(0.8) translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+  
+  .chatContent {
+    padding: 1.5rem;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  
+  /* Close button styling */
+  .chatContent button:first-child {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+  }
+  
+  .chatContent button:first-child:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Issue buttons styling and animations */
+  .chatContent button {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin: 0.5rem 0;
+    text-align: left;
+    border-radius: 8px;
+    background-color: #f5f5f5;
+    transition: all 0.2s ease;
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  .chatContent button:hover {
+    background-color: #e5e5e5;
+    transform: translateX(5px);
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Form styling and animations */
+  .chatContent form {
+    animation: slideUp 0.3s ease-out;
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .chatContent form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .chatContent form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    transition: border-color 0.2s;
+    resize: none;
+  }
+  
+  .chatContent form textarea:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+  }
+  
+  /* Solution display styling */
+  .solution-container {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  /* Response buttons styling */
+  .response-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    animation: fadeIn 0.4s ease-out;
+  }
+  
+  .response-buttons button {
+    flex: 1;
+    text-align: center;
+    padding: 0.75rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+  }
+  
+  .response-buttons .yes-button {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .response-buttons .no-button {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .response-buttons button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Scrollbar styling */
+  .chatContent::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .chatContent::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+  }
+  
+  .chatContent::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+  }
+  
+  .chatContent::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
+  /* Exit animation */
+  .chatPanel.closing {
+    animation: slideOut 0.3s ease-in forwards;
+  }
+  
+  @keyframes slideOut {
+    from {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: scale(0.8) translateY(20px);
+    }
+  }
