@@ -72,8 +72,8 @@ const ChatBot = () => {
       {!isPressed && (
         <img
           src="assets/techIcon.png"
-          width={150}
-          height={150}
+          width={120}
+          height={120}
           alt="Chat Support"
           className={`${styles.chatTrigger} cursor-pointer`}
           onClick={openChat}
@@ -94,7 +94,11 @@ const ChatBot = () => {
               <div>
                 <p>Please Select Your Issue: </p>
                 {techOptions.map((option) => (
-                  <button key={option.index} onClick={() => chooseOpt(option)}>
+                  <button
+                    className={styles.issueButton}
+                    key={option.index}
+                    onClick={() => chooseOpt(option)}
+                  >
                     {option.issue}
                   </button>
                 ))}
@@ -134,8 +138,11 @@ const ChatBot = () => {
                   />
                 </div>
                 <div>
-                  <button type="submit">Submit</button>
+                  <button className={styles.submitButton} type="submit">
+                    Submit
+                  </button>
                   <button
+                    className={styles.submitButton}
                     type="button"
                     onClick={() => {
                       setShowForm(false);
