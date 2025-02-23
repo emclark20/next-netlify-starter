@@ -22,12 +22,6 @@ const ChatBot = () => {
     setIsPressed(false);
     setSelectedIssue(null);
     setShowForm(false);
-
-    const panel = document.querySelector(".chatPanel");
-    panel.classList.add("closing");
-    setTimeout(() => {
-      setIsPressed(false);
-    }, 300);
   };
 
   const techOptions = [
@@ -72,88 +66,91 @@ const ChatBot = () => {
     });
   };
 
-  if (!isPressed) return null;
-
   return (
     <>
-    {/* Chat trigger image */}
-    {!isPressed && (
-      <img
-        src="./public/assets/buttons_navbar/techIcon.png"
-        alt="Chat Support"
-        className={`${styles.chatTrigger} cursor-pointer`}
-        onClick={openChat}
-      />
-    )}
+      {/* Chat trigger image */}
+      {!isPressed && (
+        <img
+          src="assets/techIcon.png"
+          width={150}
+          height={150}
+          alt="Chat Support"
+          className={`${styles.chatTrigger} cursor-pointer`}
+          onClick={openChat}
+        />
+      )}
 
-    {/* Chat panel */}
-    {isPressed && (
-      <div className={styles.chatPanel}>
-        <div className={styles.chatContent}>
-          <div>
-            <h2>Technical Support</h2>
-            <button onClick={closeChat}>
-              <X size={20} />
-            </button>
-          </div>
-          {!selectedIssue && !showForm && (
+      {/* Chat panel */}
+      {isPressed && (
+        <div className={styles.chatPanel}>
+          <div className={styles.chatContent}>
             <div>
-              <p>Please Select Your Issue: </p>
-              {techOptions.map((option) => (
-                <button key={option.index} onClick={() => chooseOpt(option)}>
-                  {option.issue}
-                </button>
-              ))}
+              <h2>Technical Support</h2>
+              <button className={styles.headerArea} onClick={closeChat}>
+                <X size={20} />
+              </button>
             </div>
-          )}
-          {selectedIssue && !showForm && (
-            <div className={styles.solutionContainer}>
+            {!selectedIssue && !showForm && (
               <div>
-                <h3>{selectedIssue.issue}</h3>
-                <p>{selectedIssue.solution}</p>
+                <p>Please Select Your Issue: </p>
+                {techOptions.map((option) => (
+                  <button key={option.index} onClick={() => chooseOpt(option)}>
+                    {option.issue}
+                  </button>
+                ))}
               </div>
-              <div>
-                <p>Did This Help?</p>
+            )}
+            {selectedIssue && !showForm && (
+              <div className={styles.solutionContainer}>
+                <div>
+                  <h3>{selectedIssue.issue}</h3>
+                  <p>{selectedIssue.solution}</p>
+                </div>
+                <div>
+                  <p>Did This Help?</p>
+                </div>
+                <div className={styles.responseButtons}>
+                  <button className={styles.yesButton} onClick={closeChat}>
+                    Yes!
+                  </button>
+                  <button
+                    className={styles.noButton}
+                    onClick={() => setShowForm(true)}
+                  >
+                    No, I need more help
+                  </button>
+                </div>
               </div>
-              <div className={styles.responseButtons}>
-                <button className={styles.yesButton} onClick={closeChat}>
-                  Yes!
-                </button>
-                <button className={styles.noButton} onClick={() => setShowForm(true)}>
-                  No, I need more help
-                </button>
-              </div>
-            </div>
-          )}
-          {showForm && (
-            <form onSubmit={handleSubmit}>
-              <div>
-                <label>What's Going On?</label>
-                <textarea
-                  value={customIssue}
-                  onChange={(event) => setCustomIssue(event.target.value)}
-                  placeholder="Please describe your issue..."
-                  required
-                />
-              </div>
-              <div>
-                <button type="submit">Submit</button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setShowForm(false);
-                    setSelectedIssue(null);
-                  }}
-                >
-                  Back
-                </button>
-              </div>
-            </form>
-          )}
+            )}
+            {showForm && (
+              <form onSubmit={handleSubmit}>
+                <div>
+                  <label>What's Going On?</label>
+                  <textarea
+                    value={customIssue}
+                    onChange={(event) => setCustomIssue(event.target.value)}
+                    placeholder="Please describe your issue..."
+                    required
+                  />
+                </div>
+                <div>
+                  <button type="submit">Submit</button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setShowForm(false);
+                      setSelectedIssue(null);
+                    }}
+                  >
+                    Back
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
         </div>
-      </div>
-    )}
-  </>
+      )}
+    </>
   );
 };
 export default ChatBot;

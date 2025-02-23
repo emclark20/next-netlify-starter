@@ -43,11 +43,11 @@
   }
   
   /* Close button styling */
-  .chatContent button:first-child {
+  .headerArea {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    padding: 0.5rem;
+    width: 10px;
     border-radius: 50%;
     transition: background-color 0.2s;
   }
