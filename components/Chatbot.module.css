@@ -28,6 +28,19 @@
     max-height: 80vh;
     overflow-y: auto;
   }
+
+  .chatTrigger {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    transition: transform 0.2s ease;
+  }
+  
+  .chatTrigger:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
   
   /* Close button styling */
   .chatContent button:first-child {
@@ -111,7 +124,7 @@
   }
   
   /* Solution display styling */
-  .solution-container {
+  .solutionContainer {
     background-color: #f8f9fa;
     padding: 1rem;
     border-radius: 8px;
@@ -120,14 +133,14 @@
   }
   
   /* Response buttons styling */
-  .response-buttons {
+  .responseButtons {
     display: flex;
     gap: 0.5rem;
     margin-top: 1rem;
     animation: fadeIn 0.4s ease-out;
   }
   
-  .response-buttons button {
+  .responseButtons button {
     flex: 1;
     text-align: center;
     padding: 0.75rem;
@@ -135,17 +148,17 @@
     transition: all 0.2s ease;
   }
   
-  .response-buttons .yes-button {
+  .responseButtons .yesButton {
     background-color: #4caf50;
     color: white;
   }
   
-  .response-buttons .no-button {
+  .responseButtons .noButton {
     background-color: #f44336;
     color: white;
   }
   
-  .response-buttons button:hover {
+  .responseButtons button:hover {
     transform: translateY(-2px);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   }
