@@ -1,12 +1,13 @@
 // pages/practice.js
-import React, { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
-import Header from '@components/Header';
-import Footer from '@components/Footer';
-import Flashcard from '@components/Flashcard';
-import TutorialModal from '@components/Tutorial';
-import Camera from '@components/Camera';
-import styles from './practice.module.css'; 
+import React, { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import Header from "@components/Header";
+import Footer from "@components/Footer";
+import Flashcard from "@components/Flashcard";
+import TutorialModal from "@components/Tutorial";
+import ChatBot from "@components/Chatbot";
+import Camera from "@components/Camera";
+import styles from "./practice.module.css";
 
 // Card Component
 const Card = ({ type, content, href }) => {
@@ -15,9 +16,7 @@ const Card = ({ type, content, href }) => {
       <div className="card-header">
         <h3>{type}</h3>
       </div>
-      <div className="card-content">
-        {content}
-      </div>
+      <div className="card-content">{content}</div>
     </Link>
   );
 };
@@ -70,14 +69,15 @@ const CardSection = ({ title, cards }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const scroll = (direction) => {
-    const newIndex = direction === 'left' 
-      ? Math.max(0, currentIndex - 3)
-      : Math.min(cards.length - 3, currentIndex + 3);
-    
+    const newIndex =
+      direction === "left"
+        ? Math.max(0, currentIndex - 3)
+        : Math.min(cards.length - 3, currentIndex + 3);
+
     setCurrentIndex(newIndex);
-    
+
     const container = scrollContainerRef.current;
-    container.style.transform = `translateX(-${newIndex * (100/3)}%)`;
+    container.style.transform = `translateX(-${newIndex * (100 / 3)}%)`;
   };
 
   const visibleCards = cards.slice(currentIndex, currentIndex + 3);
@@ -88,8 +88,8 @@ const CardSection = ({ title, cards }) => {
     <div className="card-section">
       <div className="section-header">
         <h2 className="section-title">{title}</h2>
-        <Link 
-          href={`/library/${title.toLowerCase().replace(' ', '-')}`}
+        <Link
+          href={`/library/${title.toLowerCase().replace(" ", "-")}`}
           className="see-all-btn"
         >
           See All
@@ -97,26 +97,26 @@ const CardSection = ({ title, cards }) => {
       </div>
       <div className="card-scroller">
         {canScrollLeft && (
-          <button 
-            onClick={() => scroll('left')}
+          <button
+            onClick={() => scroll("left")}
             className="scroll-button left"
             aria-label="Scroll left"
           >
             ←
           </button>
         )}
-        <div 
+        <div
           ref={scrollContainerRef}
           className="scroll-container"
           style={{
-            transition: 'transform 0.3s ease-in-out'
+            transition: "transform 0.3s ease-in-out",
           }}
         >
           {visibleCards}
         </div>
         {canScrollRight && (
-          <button 
-            onClick={() => scroll('right')}
+          <button
+            onClick={() => scroll("right")}
             className="scroll-button right"
             aria-label="Scroll right"
           >
@@ -131,60 +131,63 @@ const CardSection = ({ title, cards }) => {
 // Main Practice Page
 const PracticePage = () => {
   // Create an array of alphabet letters
-  const alphabetLetters = Array.from('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+  const alphabetLetters = Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 
   return (
     <div>
       <TutorialModal />
       <Header />
-      
-    <div className="practice-container">
-      <div className="practice-grid">
-        <div className="libraries-container">
-          <CardSection
-            title="Alphabet Library"
-            cards={alphabetLetters.map(letter => (
-              <Card
-                key={letter}
-                type="Alphabet"
-                content={letter}
-                /*href={`/learn/alphabet/${letter.toLowerCase()}`}*/
-                href={'/learningPgs50/learningA'}
-              />
-            ))}
-          />
 
-          <CardSection
-            title="Common Words Library"
-            cards={['Aunt', 'Uncle', 'Goodbye'].map(word => (
-              <Card
-                key={word}
-                type="Common Words"
-                content={word}
-                href={`/learn/words/${word.toLowerCase()}`}
-              />
-            ))}
-          />
+      <div className="practice-container">
+        <div className="practice-grid">
+          <div className="libraries-container">
+            <CardSection
+              title="Alphabet Library"
+              cards={alphabetLetters.map((letter) => (
+                <Card
+                  key={letter}
+                  type="Alphabet"
+                  content={letter}
+                  /*href={`/learn/alphabet/${letter.toLowerCase()}`}*/
+                  href={"/learningPgs50/learningA"}
+                />
+              ))}
+            />
 
-          <CardSection
-            title="Your Bookmarks"
-            cards={['Deaf', 'Hungry', 'We'].map(word => (
-              <Card
-                key={word}
-                type="Common Words"
-                content={word}
-                href={`/learn/words/${word.toLowerCase()}`}
-              />
-            ))}
-          />
-        </div>
+            <CardSection
+              title="Common Words Library"
+              cards={["Aunt", "Uncle", "Goodbye"].map((word) => (
+                <Card
+                  key={word}
+                  type="Common Words"
+                  content={word}
+                  href={`/learn/words/${word.toLowerCase()}`}
+                />
+              ))}
+            />
 
-        <div>
-          <Camera />
+            <CardSection
+              title="Your Bookmarks"
+              cards={["Deaf", "Hungry", "We"].map((word) => (
+                <Card
+                  key={word}
+                  type="Common Words"
+                  content={word}
+                  href={`/learn/words/${word.toLowerCase()}`}
+                />
+              ))}
+            />
+          </div>
+
+          <div>
+            <Camera />
+          </div>
+          <div>
+            <ChatBot />
+          </div>
         </div>
       </div>
-    </div>
-    <Footer/>
+      <Footer />
     </div>
   );
 };
