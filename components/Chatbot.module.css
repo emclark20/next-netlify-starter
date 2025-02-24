@@ -70,13 +70,14 @@
     margin: 0.5rem 0;
     text-align: left;
     border-radius: 8px;
-    background-color: #f5f5f5;
+    background-color: #1A3169;
+    color: white;
     transition: all 0.2s ease;
     animation: fadeIn 0.3s ease-out;
   }
   
   .chatContent button:hover {
-    background-color: #e5e5e5;
+    background-color: #f2a460;
     transform: translateX(5px);
   }
   
@@ -157,13 +158,19 @@
   }
   
   .yesButton {
-    background-color: #4caf50;
+    background-color: #1A3169;
     color: white;
+    padding: 0.75rem;
+    
+    border-radius: 8px;
   }
   
   .noButton {
-    background-color: #f44336;
+    background-color: #f49b4c;
     color: white;
+    padding: 0.75rem;
+    
+    border-radius: 8px;
   }
   
   .responseButtons button:hover {
