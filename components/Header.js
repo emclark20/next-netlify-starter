@@ -5,7 +5,7 @@ import Image from 'next/image'
       <div class="nav-links">
           <Link href="/">Home</Link>
           <Link href="/aboutUs5">About Us</Link>
-          <Link href="/practice">Start Learning</Link>
+          <Link href="/startLearning">Start Learning</Link>
           
       </div>
       <Image src="/assets/primaryLogoWhite.svg" width={149.28} height={42.05} alt="Webcam" />

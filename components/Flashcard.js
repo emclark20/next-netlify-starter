@@ -1,4 +1,4 @@
-import { useState } from 'react';
+/* import { useState } from 'react';
 
 const Flashcard = () => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -14,7 +14,7 @@ const Flashcard = () => {
           isFlipped ? 'rotate-y-180' : ''
         } preserve-3d`}
       >
-        {/* Front of card */}
+        {/* Front of card }
         <div className={`absolute w-full h-full bg-white rounded-lg shadow-lg p-6 backface-hidden ${
           isFlipped ? 'invisible' : ''
         }`}>
@@ -23,7 +23,7 @@ const Flashcard = () => {
           </div>
         </div>
 
-        {/* Back of card (Video) */}
+        {/* Back of card (Video) }
         <div className={`absolute w-full h-full bg-black rounded-lg shadow-lg overflow-hidden rotate-y-180 backface-hidden ${
           !isFlipped ? 'invisible' : ''
         }`}>
@@ -38,7 +38,7 @@ const Flashcard = () => {
           </video>
         </div>
 
-        {/* Flip button */}
+        {/* Flip button }
         <button
           onClick={handleFlip}
           className="absolute bottom-4 right-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors z-10"
@@ -63,4 +63,46 @@ export default function Page() {
       videoUrl="/path-to-your-video.mp4"
     />
   );
-} */
+} 
+  import Link from 'next/link';
+  import React from 'react';
+  import styles from './Flashcard.module.css';
+  
+  const Flashcard = ({ title, letter, href }) => {
+    return (
+      <Link href={href} className={styles.link}>
+        <div className={styles.flashcard}>
+          <div className={styles.header}>
+            <h2 className={styles.title}>{title}</h2>
+          </div>
+          <div className={styles.content}>
+            <span className={styles.letter}>{letter}</span>
+          </div>
+        </div>
+      </Link>
+    );
+  };
+  
+  export default Flashcard; */
+import Link from 'next/link';
+import React from 'react';
+import styles from './Flashcard.module.css';
+
+const Flashcard = ({ title, letter, href }) => {
+  return (
+    <Link href={href} className={styles.link}>
+      <div className={styles.flashcard}>
+        <div className={styles.header}>
+          <h2 className={styles.title}>{title}</h2>
+        </div>
+        <div className={styles.content}>
+          <span className={`${styles.letter} ${styles.fixedSize}`}>
+            {letter}
+          </span>
+        </div>
+      </div>
+    </Link>
+  );
+};
+
+export default Flashcard;
