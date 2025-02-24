@@ -1,0 +1,90 @@
+/* PhraseCarousel.module.css */
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: var(--font-league-spartan), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  .seeAllButton {
+    background-color: #3b82f6;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-size: 1.125rem;
+  }
+  
+  .carouselContainer {
+    position: relative;
+  }
+  
+  .carouselTrack {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  
+  .cardContainer {
+    width: 100%;
+  }
+  
+  .navigationButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+  }
+  
+  .prevButton {
+    left: -20px;
+  }
+  
+  .nextButton {
+    right: -20px;
+  }
+  
+  .disabledButton {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .leftArrow {
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #000;
+    border-left: 2px solid #000;
+    transform: rotate(-45deg);
+    display: inline-block;
+  }
+  
+  .rightArrow {
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #000;
+    border-right: 2px solid #000;
+    transform: rotate(45deg);
+    display: inline-block;
+  }

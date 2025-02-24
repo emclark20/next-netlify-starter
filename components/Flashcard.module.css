@@ -15,12 +15,15 @@
     background-color: #1A237E; /* dark blue */
     color: white;
     padding: 0.75rem 1rem;
+
   }
   
   .title {
     margin: 0;
     font-weight: bold;
     font-size: 1.25rem;
+    /* font-family: var(--font-league-spartan), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; */
+    font-family: var(--font-nunito), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
   
   .content {
@@ -34,6 +37,7 @@
   .letter {
     text-align: center;
     font-weight: bold;
+    font-family: var(--font-nunito), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
   
   .fixedSize {
