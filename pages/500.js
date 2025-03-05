@@ -5,7 +5,7 @@ export default function Custom500() {
         container: {
           width: '100%',
           height: '100vh',
-          //backgroundImage: 'url("/assets/404-Page.svg")',
+          backgroundImage: 'url("/assets/500-Page.svg")',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
