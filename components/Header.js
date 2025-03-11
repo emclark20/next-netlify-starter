@@ -4,15 +4,24 @@ import { useState, useEffect } from 'react'
 
 export default function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userData, setUserData] = useState(null);
   
   useEffect(() => {
     // Check if user is logged in
     async function checkAuth() {
       try {
         const response = await fetch('/api/user/profile');
-        setIsLoggedIn(response.ok);
+        if (response.ok) {
+          const data = await response.json();
+          setIsLoggedIn(true);
+          setUserData(data.user);
+        } else {
+          setIsLoggedIn(false);
+          setUserData(null);
+        }
       } catch (error) {
         setIsLoggedIn(false);
+        setUserData(null);
       }
     }
     
@@ -33,12 +42,12 @@ export default function Header() {
         alt="Webcam" 
       />
       
-      {isLoggedIn ? (
+      {isLoggedIn && userData ? (
         <Link href="/profile" className="sign-in-btn">
           Profile
         </Link>
       ) : (
-        <Link href="/signUp" className="sign-in-btn">Sign In</Link>
+        <Link href="/auth" className="sign-in-btn">Sign In</Link>
       )}
     </nav>
   )
