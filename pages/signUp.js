@@ -8,13 +8,16 @@ const AuthPage = () => {
   const router = useRouter();
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
+    emailOrUsername: '',  // Updated field name
     email: '',
     password: '',
     firstName: '',
-    lastName: '', // Added lastName
+    lastName: '',
     username: '',
     confirmPassword: ''
   });
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleInputChange = (e) => {
     setFormData({
@@ -23,11 +26,33 @@ const AuthPage = () => {
     });
   };
 
+  const validateForm = () => {
+    if (!isLogin && formData.password !== formData.confirmPassword) {
+      setError('Passwords do not match');
+      return false;
+    }
+    
+    if (!isLogin && formData.password.length < 8) {
+      setError('Password must be at least 8 characters');
+      return false;
+    }
+    
+    return true;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
     
-    if (!isLogin) {
-      try {
+    if (!validateForm()) {
+      return;
+    }
+    
+    setLoading(true);
+    
+    try {
+      if (!isLogin) {
+        // Handle signup
         const response = await fetch('/api/auth/signup', {
           method: 'POST',
           headers: {
@@ -48,21 +73,60 @@ const AuthPage = () => {
           throw new Error(data.message || 'Something went wrong');
         }
 
-        // Redirect to dashboard on success
-        router.push('/dashboard');
-      } catch (error) {
-        console.error('Signup error:', error);
-        // You can add error handling UI here if needed
+        // Automatically log in after successful signup
+        const loginResponse = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            emailOrUsername: formData.email,  // Use email for auto-login after signup
+            password: formData.password,
+          }),
+        });
+        
+        const loginData = await loginResponse.json();
+        
+        if (!loginResponse.ok) {
+          throw new Error(loginData.message || 'Login failed after signup');
+        }
+
+        // Redirect to profile page on success
+        router.push('/profile');
+      } else {
+        // Handle login
+        const response = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            emailOrUsername: formData.emailOrUsername,  // Use either email or username
+            password: formData.password,
+          }),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.message || 'Invalid credentials');
+        }
+
+        // Redirect to profile page on success
+        router.push('/profile');
       }
-    } else {
-      // Existing login logic here
-      console.log('Form submitted:', formData);
+    } catch (error) {
+      console.error(isLogin ? 'Login error:' : 'Signup error:', error);
+      setError(error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   const toggleForm = () => {
     setIsLogin(!isLogin);
     setFormData({
+      emailOrUsername: '',
       email: '',
       password: '',
       firstName: '',
@@ -70,16 +134,23 @@ const AuthPage = () => {
       username: '',
       confirmPassword: ''
     });
+    setError('');
   };
 
   return (
     <div className="auth-container">
+      <Head>
+        <title>{isLogin ? 'Login' : 'Sign Up'} | Flashcard App</title>
+      </Head>
+      
       <Header/>
 
       <main className="auth-main">
         <h1 className="auth-title">
           {isLogin ? 'Login' : 'Sign Up'}
         </h1>
+
+        {error && <div className="error-message">{error}</div>}
 
         <form onSubmit={handleSubmit} className="auth-form">
           {!isLogin && (
@@ -117,20 +188,34 @@ const AuthPage = () => {
                   required
                 />
               </div>
+              <div className="form-group">
+                <label htmlFor="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
             </>
           )}
           
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
+          {isLogin && (
+            <div className="form-group">
+              <label htmlFor="emailOrUsername">Email or Username</label>
+              <input
+                type="text"
+                id="emailOrUsername"
+                name="emailOrUsername"
+                value={formData.emailOrUsername}
+                onChange={handleInputChange}
+                required
+                placeholder="Enter your email or username"
+              />
+            </div>
+          )}
 
           <div className="form-group">
             <label htmlFor="password">Password</label>
@@ -164,12 +249,17 @@ const AuthPage = () => {
             </a>
           )}
 
-          <button type="submit" className="submit-button">
-            Submit
+          <button 
+            type="submit" 
+            className="submit-button" 
+            disabled={loading}
+          >
+            {loading ? (isLogin ? 'Logging in...' : 'Signing up...') : 'Submit'}
           </button>
           
+          {/* Note: You'll need to implement Google OAuth separately */}
           {isLogin && (
-            <button type="button" className="google-button">
+            <button type="button" className="google-button" disabled={loading}>
               Login with Google
             </button>
           )}
@@ -178,14 +268,14 @@ const AuthPage = () => {
             {isLogin ? (
               <p>
                 No Account?{' '}
-                <button type="button" onClick={toggleForm}>
+                <button type="button" onClick={toggleForm} disabled={loading}>
                   Sign Up here!
                 </button>
               </p>
             ) : (
               <p>
                 Already have an account?{' '}
-                <button type="button" onClick={toggleForm}>
+                <button type="button" onClick={toggleForm} disabled={loading}>
                   Login here!
                 </button>
               </p>

@@ -56,3 +56,268 @@
     display: block;
     height: 100%;
   }
+
+  .flashcardContainer {
+    position: relative;
+  }
+  
+  .flashcard {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .flashcard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .header {
+    background-color: #1c2959;
+    color: white;
+    padding: 0.5rem 1rem;
+  }
+  
+  .title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  .content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: white;
+  }
+  
+  .letter {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .fixedSize {
+    display: inline-block;
+    min-width: 80px;
+    text-align: center;
+  }
+  
+  .link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  
+  .bookmarkButton {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    padding: 5px;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+  }
+  
+  .bookmarkButton:hover {
+    color: #333;
+  }
+  
+  .bookmarkButton.bookmarked {
+    color: #1c2959;
+  }
+  /* Keep your existing Flashcard styles and add these new ones */
+
+.flashcardContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.flashcard {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.flashcard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.header {
+  background-color: #1c2959;
+  color: white;
+  padding: 0.5rem 1rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: white;
+}
+
+.letter {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.fixedSize {
+  display: inline-block;
+  min-width: 80px;
+  text-align: center;
+}
+
+/* Bookmark button styles */
+.bookmarkButton {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #1D2761;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  z-index: 5;
+  transition: transform 0.2s ease;
+}
+
+.bookmarkButton:hover {
+  transform: scale(1.1);
+}
+
+.bookmarkButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.bookmarkButton.bookmarked {
+  color: #1D2761;
+}
+
+.bookmarkButton:not(.bookmarked) {
+  color: #ccc;
+}
+
+/* Loading card placeholder */
+.loadingCard {
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
+
+/* Login Alert Modal */
+.loginAlertOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.loginAlert {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+}
+
+.loginAlert h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #1c2959;
+  font-size: 1.25rem;
+}
+
+.loginAlert p {
+  margin-bottom: 1.5rem;
+}
+
+.alertButtons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.signUpButton {
+  background-color: #1c2959;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.cancelButton {
+  background-color: #f5f5f5;
+  color: #333;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  font-size: 0.9rem;
+}

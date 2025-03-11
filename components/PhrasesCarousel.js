@@ -1,50 +1,70 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Flashcard from './Flashcard'; // Import your existing Flashcard component
 import Link from 'next/link';
-import styles from './PhrasesCarousel.module.css';
+import styles from './AlphabetCarousel.module.css'; // Assuming you're using the same styles
 
 /**
- * PhraseCarousel Component
+ * PhrasesCarousel Component
  * 
- * A carousel that displays common ASL phrases three at a time.
- * Allows navigation through all 24 phrases with circular scrolling.
+ * A carousel that displays common phrase flashcards three at a time with bookmark functionality.
  * 
- * @returns {React.Component} The PhraseCarousel component
+ * @returns {React.Component} The PhrasesCarousel component
  */
-const PhraseCarousel = () => {
-  // Create an array of all 24 common phrases
-  const phrases = [
-    "Hi",
-    "Goodbye",
-    "I am",
-    "You are",
-    "We are",
-    "Yes",
-    "No",
-    "Please",
-    "Thank you",
-    "You're welcome",
-    "Mom",
-    "Dad",
-    "Sister",
-    "Brother",
-    "Hearing",
-    "Deaf",
-    "Name",
-    "She is",
-    "He is",
-    "They are",
-    "Slow down",
-    "Repeat",
-    "Practice",
-    "Learning ASL"
-  ];
+const PhrasesCarousel = () => {
+  // State to store flashcard data from the database
+  const [flashcards, setFlashcards] = useState([]);
+  
+  // State to track bookmarked flashcards
+  const [bookmarkedIds, setBookmarkedIds] = useState(new Set());
   
   // State to track which index to start showing phrases from
   const [startIndex, setStartIndex] = useState(0);
   
-  // Calculate the maximum starting index (total phrases minus visible count)
-  const maxIndex = phrases.length - 3; // We show 3 cards at a time
+  // State to track loading status
+  const [loading, setLoading] = useState(true);
+  
+  // Fetch flashcards and bookmarks from the database
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        
+        // Fetch common phrases flashcards
+        const flashcardsResponse = await fetch('/api/flashcards?category=Common+Phrases');
+        
+        if (flashcardsResponse.ok) {
+          const flashcardsData = await flashcardsResponse.json();
+          setFlashcards(flashcardsData.flashcards);
+          
+          // Try to fetch bookmarks
+          try {
+            const bookmarksResponse = await fetch('/api/bookmarks');
+            
+            if (bookmarksResponse.ok) {
+              const bookmarksData = await bookmarksResponse.json();
+              const bookmarkSet = new Set(
+                bookmarksData.bookmarks.map(bookmark => bookmark.flashcard_id)
+              );
+              setBookmarkedIds(bookmarkSet);
+            }
+          } catch (err) {
+            console.error('Error fetching bookmarks:', err);
+          }
+        } else {
+          console.error('Failed to fetch flashcards');
+        }
+      } catch (err) {
+        console.error('Error fetching data:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchData();
+  }, []);
+  
+  // Calculate the maximum starting index
+  const maxIndex = Math.max(0, flashcards.length - 3); // We show 3 cards at a time
   
   /**
    * Handler for the "next" button
@@ -74,10 +94,8 @@ const PhraseCarousel = () => {
     }
   };
 
-  // Function to convert phrase to URL-friendly format
-  const formatUrlPath = (phrase) => {
-    return phrase.toLowerCase().replace(/\s+/g, '-').replace(/'/g, '');
-  };
+  // Get the current visible phrases
+  const visiblePhrases = flashcards.slice(startIndex, startIndex + 3);
 
   return (
     <div className={styles.container}>
@@ -93,38 +111,30 @@ const PhraseCarousel = () => {
       <div className={styles.carouselContainer}>
         {/* Grid layout for the three visible cards */}
         <div className={styles.carouselTrack}>
-          {/* First Card - Shows the phrase at the current startIndex */}
-          <div className={styles.cardContainer}>
-            {startIndex < phrases.length && (
+          {/* Display up to three phrase cards */}
+          {!loading && visiblePhrases.map((phrase, index) => (
+            <div key={phrase.flashcard_id} className={styles.cardContainer}>
               <Flashcard 
                 title="Phrase" 
-                letter={phrases[startIndex]} 
-                href={`/phrases/${formatUrlPath(phrases[startIndex])}`} 
+                letter={phrase.content} 
+                href={`/flashcard/${phrase.flashcard_id}`}
+                id={phrase.flashcard_id}
+                isBookmarked={bookmarkedIds.has(phrase.flashcard_id)}
               />
-            )}
-          </div>
+            </div>
+          ))}
           
-          {/* Second Card - Shows the phrase at startIndex + 1 */}
-          <div className={styles.cardContainer}>
-            {startIndex + 1 < phrases.length && (
-              <Flashcard 
-                title="Phrase" 
-                letter={phrases[startIndex + 1]} 
-                href={`/phrases/${formatUrlPath(phrases[startIndex + 1])}`} 
-              />
-            )}
-          </div>
+          {/* Show placeholder cards if we have fewer than 3 phrases to show */}
+          {!loading && visiblePhrases.length < 3 && Array(3 - visiblePhrases.length).fill(0).map((_, index) => (
+            <div key={`placeholder-${index}`} className={styles.cardContainer} />
+          ))}
           
-          {/* Third Card - Shows the phrase at startIndex + 2 */}
-          <div className={styles.cardContainer}>
-            {startIndex + 2 < phrases.length && (
-              <Flashcard 
-                title="Phrase" 
-                letter={phrases[startIndex + 2]} 
-                href={`/phrases/${formatUrlPath(phrases[startIndex + 2])}`} 
-              />
-            )}
-          </div>
+          {/* Show loading placeholders */}
+          {loading && Array(3).fill(0).map((_, index) => (
+            <div key={`loading-${index}`} className={styles.cardContainer}>
+              <div className={styles.loadingCard}>Loading...</div>
+            </div>
+          ))}
         </div>
         
         {/* Previous button - Left side navigation */}
@@ -132,6 +142,7 @@ const PhraseCarousel = () => {
           onClick={handlePrev} 
           className={`${styles.navigationButton} ${styles.prevButton}`}
           aria-label="Previous phrase"
+          disabled={loading || flashcards.length <= 3}
         >
           <span className={styles.leftArrow}></span>
         </button>
@@ -141,6 +152,7 @@ const PhraseCarousel = () => {
           onClick={handleNext} 
           className={`${styles.navigationButton} ${styles.nextButton}`}
           aria-label="Next phrase"
+          disabled={loading || flashcards.length <= 3}
         >
           <span className={styles.rightArrow}></span>
         </button>
@@ -149,4 +161,4 @@ const PhraseCarousel = () => {
   );
 };
 
-export default PhraseCarousel;
+export default PhrasesCarousel;
