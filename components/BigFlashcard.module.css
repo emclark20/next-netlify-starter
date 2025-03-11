@@ -1,0 +1,234 @@
+/* BigFlashcard.module.css */
+.bigFlashcardContainer {
+    perspective: 1000px;
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    margin: 0 auto;
+    cursor: pointer;
+  }
+  
+  .flipper {
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .bigFlashcardContainer.flipped .flipper {
+    transform: rotateY(180deg);
+  }
+  
+  .front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .back {
+    transform: rotateY(180deg);
+    background-color: white;
+  }
+  
+  .header {
+    background-color: #1c2959;
+    color: white;
+    padding: 0.75rem 1.5rem;
+  }
+  
+  .title {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  
+  .content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: white;
+  }
+  
+  .text {
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .videoContainer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 1rem;
+  }
+  
+  .videoWrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .video {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  
+  .noVideo {
+    text-align: center;
+    color: #666;
+    padding: 2rem;
+  }
+  
+  .bookmarkButton {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #1D2761;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    z-index: 5;
+    transition: transform 0.2s ease;
+  }
+  
+  .bookmarkButton:hover {
+    transform: scale(1.1);
+  }
+  
+  .bookmarkButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .bookmarkButton.bookmarked {
+    color: #1D2761;
+  }
+  
+  .bookmarkButton:not(.bookmarked) {
+    color: #ccc;
+  }
+  
+  .flipInstruction {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #666;
+    font-size: 0.8rem;
+  }
+  
+  .videoNavigation {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem 1rem;
+  }
+  
+  .navArrow {
+    background-color: rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+  }
+  
+  .navArrow:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Login Alert Modal */
+  .loginAlertOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .loginAlert {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: relative;
+  }
+  
+  .closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+  }
+  
+  .loginAlert h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #1c2959;
+    font-size: 1.25rem;
+  }
+  
+  .loginAlert p {
+    margin-bottom: 1.5rem;
+  }
+  
+  .alertButtons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+  
+  .signUpButton {
+    background-color: #1c2959;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  
+  .cancelButton {
+    background-color: #f5f5f5;
+    color: #333;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }

@@ -5,12 +5,19 @@ import styles from './Tutorial.module.css';
 const TutorialModal = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
-
+  
   useEffect(() => {
-    // Show modal when component mounts
-    setIsOpen(true);
+    // Check if tutorial has been shown in this session
+    const tutorialShown = sessionStorage.getItem('tutorialShown');
+    
+    if (!tutorialShown) {
+      // Show modal when component mounts and tutorial hasn't been shown
+      setIsOpen(true);
+      // Mark tutorial as shown for this session
+      sessionStorage.setItem('tutorialShown', 'true');
+    }
   }, []);
-
+  
   const tutorialSteps = [
     {
       title: "Welcome!",
@@ -33,7 +40,7 @@ const TutorialModal = () => {
       content: "You're all set! Start exploring & get signing!"
     }
   ];
-
+  
   const handleNext = () => {
     if (currentStep < tutorialSteps.length - 1) {
       setCurrentStep(currentStep + 1);
@@ -41,23 +48,22 @@ const TutorialModal = () => {
       setIsOpen(false);
     }
   };
-
+  
   const handleClose = () => {
     setIsOpen(false);
   };
-
+  
   if (!isOpen) return null;
-
+  
   return (
     <div className={styles.modalOverlay}>
       <div className={styles.modalContent}>
-        <button 
+        <button
           onClick={handleClose}
           className={styles.closeButton}
         >
           <X size={20} />
         </button>
-
         <div className={styles.progressContainer}>
           {tutorialSteps.map((_, index) => (
             <div
@@ -68,7 +74,6 @@ const TutorialModal = () => {
             />
           ))}
         </div>
-
         <div className={styles.contentContainer}>
           <h2 className={styles.title}>
             {tutorialSteps[currentStep].title}
@@ -77,7 +82,6 @@ const TutorialModal = () => {
             {tutorialSteps[currentStep].content}
           </p>
         </div>
-
         <button
           onClick={handleNext}
           className={styles.nextButton}

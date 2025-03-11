@@ -2,100 +2,88 @@ import React, { useState, useEffect } from 'react';
 import Flashcard from './Flashcard';
 import styles from './FlashcardGrid.module.css';
 
-const FlashcardGrid = ({ category = null, bookmarksOnly = false }) => {
+const FlashcardGrid = ({ category }) => {
   const [flashcards, setFlashcards] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [bookmarkedIds, setBookmarkedIds] = useState(new Set());
 
-  // Fetch the flashcards
   useEffect(() => {
-    const fetchFlashcards = async () => {
+    const fetchData = async () => {
       try {
         setLoading(true);
         
-        // Determine which API endpoint to call
-        let url = bookmarksOnly 
-          ? '/api/bookmarks' 
-          : `/api/flashcards${category ? `?category=${encodeURIComponent(category)}` : ''}`;
+        // Different API calls based on the selected category
+        let response;
         
-        const response = await fetch(url);
-        
-        if (!response.ok) {
-          throw new Error('Failed to fetch flashcards');
-        }
-        
-        const data = await response.json();
-        
-        // Set the flashcards based on which endpoint was called
-        const cardsData = bookmarksOnly ? data.bookmarks : data.flashcards;
-        setFlashcards(cardsData);
-        
-        // If not in bookmarks-only mode, fetch the user's bookmarks to mark them
-        if (!bookmarksOnly) {
-          try {
-            const bookmarksResponse = await fetch('/api/bookmarks');
-            if (bookmarksResponse.ok) {
-              const bookmarksData = await bookmarksResponse.json();
-              const bookmarkSet = new Set(
-                bookmarksData.bookmarks.map(bookmark => bookmark.flashcard_id)
-              );
-              setBookmarkedIds(bookmarkSet);
+        if (category === 'Bookmarked') {
+          // If "Bookmarked" is selected, fetch from bookmarks API
+          response = await fetch('/api/bookmarks');
+          
+          if (response.ok) {
+            const data = await response.json();
+            setFlashcards(data.bookmarks); // Use the bookmarks data directly
+            
+            // Create a set of bookmarked IDs (all cards are bookmarked in this view)
+            const bookmarkSet = new Set(
+              data.bookmarks.map(bookmark => bookmark.flashcard_id)
+            );
+            setBookmarkedIds(bookmarkSet);
+          } else {
+            throw new Error('Failed to fetch bookmarks');
+          }
+        } else {
+          // For other categories, use the regular flashcards API
+          const queryParam = category ? `?category=${encodeURIComponent(category)}` : '';
+          response = await fetch(`/api/flashcards${queryParam}`);
+          
+          if (response.ok) {
+            const data = await response.json();
+            setFlashcards(data.flashcards);
+            
+            // Also fetch bookmarks to indicate which cards are bookmarked
+            try {
+              const bookmarksResponse = await fetch('/api/bookmarks');
+              if (bookmarksResponse.ok) {
+                const bookmarksData = await bookmarksResponse.json();
+                const bookmarkSet = new Set(
+                  bookmarksData.bookmarks.map(bookmark => bookmark.flashcard_id)
+                );
+                setBookmarkedIds(bookmarkSet);
+              }
+            } catch (err) {
+              console.error('Error fetching bookmarks:', err);
             }
-          } catch (err) {
-            console.error('Error fetching bookmarks:', err);
-            // Non-critical error, so we don't set the main error state
+          } else {
+            throw new Error(`Failed to fetch flashcards for category: ${category}`);
           }
         }
       } catch (err) {
-        console.error('Error fetching flashcards:', err);
+        console.error('Error fetching data:', err);
         setError(err.message);
       } finally {
         setLoading(false);
       }
     };
+    
+    fetchData();
+  }, [category]); // Re-fetch when category changes
 
-    fetchFlashcards();
-  }, [category, bookmarksOnly]);
-
-  // Handle bookmark toggling
-  const handleToggleBookmark = async (flashcardId, isBookmarking) => {
-    try {
-      if (isBookmarking) {
-        // Add bookmark
-        const response = await fetch('/api/bookmarks', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ flashcardId }),
-        });
-
-        if (response.ok) {
-          setBookmarkedIds(prev => new Set([...prev, flashcardId]));
-        }
-      } else {
-        // Remove bookmark
-        const response = await fetch(`/api/bookmarks?flashcardId=${flashcardId}`, {
-          method: 'DELETE',
-        });
-
-        if (response.ok) {
-          setBookmarkedIds(prev => {
-            const newSet = new Set([...prev]);
-            newSet.delete(flashcardId);
-            return newSet;
-          });
-          
-          // If in bookmarks-only mode, remove the card from the list
-          if (bookmarksOnly) {
-            setFlashcards(prev => prev.filter(card => card.flashcard_id !== flashcardId));
-          }
-        }
+  // Update bookmark status in UI after toggling
+  const handleToggleBookmark = (id, isBookmarked) => {
+    if (isBookmarked) {
+      setBookmarkedIds(prev => new Set([...prev, id]));
+    } else {
+      setBookmarkedIds(prev => {
+        const newSet = new Set([...prev]);
+        newSet.delete(id);
+        return newSet;
+      });
+      
+      // If we're in Bookmarked view, remove the card from the view
+      if (category === 'Bookmarked') {
+        setFlashcards(prev => prev.filter(card => card.flashcard_id !== id));
       }
-    } catch (err) {
-      console.error('Error updating bookmark:', err);
-      // Optionally show an error to the user
     }
   };
 
@@ -110,9 +98,11 @@ const FlashcardGrid = ({ category = null, bookmarksOnly = false }) => {
   if (flashcards.length === 0) {
     return (
       <div className={styles.empty}>
-        {bookmarksOnly 
+        {category === 'Bookmarked' 
           ? "You haven't bookmarked any flashcards yet." 
-          : "No flashcards available."}
+          : category 
+            ? `No flashcards available for ${category}.` 
+            : "No flashcards available."}
       </div>
     );
   }
@@ -126,7 +116,7 @@ const FlashcardGrid = ({ category = null, bookmarksOnly = false }) => {
           title={card.category}
           letter={card.content}
           href={`/flashcard/${card.flashcard_id}`}
-          isBookmarked={bookmarksOnly || bookmarkedIds.has(card.flashcard_id)}
+          isBookmarked={bookmarkedIds.has(card.flashcard_id)}
           onToggleBookmark={handleToggleBookmark}
         />
       ))}

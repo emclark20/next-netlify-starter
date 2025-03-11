@@ -24,7 +24,7 @@ export default function Header() {
       <div className="nav-links">
         <Link href="/">Home</Link>
         <Link href="/aboutUs5">About Us</Link>
-        <Link href="/startLearning">Start Learning</Link>
+        <Link href="/flashcards">Start Learning</Link>
       </div>
       <Image 
         src="/assets/primaryLogoWhite.svg" 
@@ -38,7 +38,7 @@ export default function Header() {
           Profile
         </Link>
       ) : (
-        <Link href="/auth" className="sign-in-btn">Sign In</Link>
+        <Link href="/signUp" className="sign-in-btn">Sign In</Link>
       )}
     </nav>
   )
