@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Flashcard from './Flashcard';
 import styles from './FlashcardGrid.module.css';
 
-const FlashcardGrid = ({ category }) => {
+const FlashcardGrid = ({ category, bookmarksOnly = false }) => {
   const [flashcards, setFlashcards] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -13,11 +13,11 @@ const FlashcardGrid = ({ category }) => {
       try {
         setLoading(true);
         
-        // Different API calls based on the selected category
+        // Different API calls based on the selected category or bookmarksOnly flag
         let response;
         
-        if (category === 'Bookmarked') {
-          // If "Bookmarked" is selected, fetch from bookmarks API
+        if (bookmarksOnly || category === 'Bookmarked') {
+          // If "Bookmarked" is selected or bookmarksOnly is true, fetch from bookmarks API
           response = await fetch('/api/bookmarks');
           
           if (response.ok) {
@@ -67,7 +67,7 @@ const FlashcardGrid = ({ category }) => {
     };
     
     fetchData();
-  }, [category]); // Re-fetch when category changes
+  }, [category, bookmarksOnly]); // Re-fetch when category or bookmarksOnly changes
 
   // Update bookmark status in UI after toggling
   const handleToggleBookmark = (id, isBookmarked) => {
@@ -80,8 +80,8 @@ const FlashcardGrid = ({ category }) => {
         return newSet;
       });
       
-      // If we're in Bookmarked view, remove the card from the view
-      if (category === 'Bookmarked') {
+      // If we're in Bookmarked view or bookmarksOnly is true, remove the card from the view
+      if (bookmarksOnly || category === 'Bookmarked') {
         setFlashcards(prev => prev.filter(card => card.flashcard_id !== id));
       }
     }
@@ -98,7 +98,7 @@ const FlashcardGrid = ({ category }) => {
   if (flashcards.length === 0) {
     return (
       <div className={styles.empty}>
-        {category === 'Bookmarked' 
+        {(bookmarksOnly || category === 'Bookmarked')
           ? "You haven't bookmarked any flashcards yet." 
           : category 
             ? `No flashcards available for ${category}.` 
