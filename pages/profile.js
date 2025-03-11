@@ -4,7 +4,6 @@ import Head from 'next/head';
 import Header from '@components/Header';
 import Footer from '@components/Footer';
 import Image from 'next/image';
-import Link from 'next/link';
 import FlashcardGrid from '@components/FlashcardGrid';
 
 export default function ProfilePage() {
@@ -13,23 +12,6 @@ export default function ProfilePage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [activeTab, setActiveTab] = useState('bookmarks');
-  const [bookmarkedFlashcards, setBookmarkedFlashcards] = useState([]);
-
-  // Sample flashcard data (to be replaced with actual API call)
-  const sampleFlashcards = [
-    { id: 1, category: 'Alphabet', content: 'K' },
-    { id: 2, category: 'Alphabet', content: 'J' },
-    { id: 3, category: 'Alphabet', content: 'Y' },
-    { id: 4, category: 'Alphabet', content: 'P' },
-    { id: 5, category: 'Common Words', content: 'Aunt' },
-    { id: 6, category: 'Common Words', content: 'Uncle' },
-    { id: 7, category: 'Common Words', content: 'Goodbye' },
-    { id: 8, category: 'Common Words', content: 'Help' },
-    { id: 9, category: 'Common Words', content: 'Deaf' },
-    { id: 10, category: 'Common Words', content: 'Hungry' },
-    { id: 11, category: 'Common Words', content: 'We' },
-    { id: 12, category: 'Common Words', content: 'They' },
-  ];
 
   useEffect(() => {
     // Fetch the user profile when the component mounts
@@ -48,10 +30,6 @@ export default function ProfilePage() {
 
         const data = await response.json();
         setUser(data.user);
-        
-        // In the future, fetch the user's bookmarked flashcards
-        // For now, use sample data
-        setBookmarkedFlashcards(sampleFlashcards);
       } catch (err) {
         console.error('Error fetching profile:', err);
         setError('Failed to load profile. Please try again.');
@@ -72,7 +50,7 @@ export default function ProfilePage() {
       if (response.ok) {
         // After successful logout, redirect to home page
         router.push('/');
-        // Optionally add a small delay to allow the cookie to be cleared
+        // Add a small delay to allow the cookie to be cleared
         setTimeout(() => {
           // Force a page refresh to update all components that rely on auth state
           window.location.reload();

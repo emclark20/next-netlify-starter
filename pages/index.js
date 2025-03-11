@@ -12,7 +12,7 @@ export default function Home() {
             <h1>Introducing<br/>SignIE</h1>
             <p>Your Gateway to an Engaging ASL Learning<br/>
             Learn ASL at your own pace with our intuitive platform. Simply sign up, start practicing, and receive instant feedback on your performance.</p>
-            <Link href="practice" class="start-btn">Start Using SignIE</Link>
+            <Link href="flashcards" class="start-btn">Start Using SignIE</Link>
         </div>
         <div class="indexPentagon"></div>
         <Image src="/assets/webcam.svg" width={400} height={470} alt="Webcam" />
@@ -75,7 +75,7 @@ export default function Home() {
             <Image src="/assets/avatar.svg" width={100} height={100} alt="placeholder for team member headshot" />
             </div>
         </div>
-        <Link href="/aboutUs" class="start-btn">About Us</Link>
+        <Link href="/aboutUs5" class="start-btn">About Us</Link>
     </section>
     <Footer/>    </div>
     
