@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="footer-container">
         <p>©2025 SignIE</p>
         <div className="footer-links">
-          <Link href="#">Home</Link>
+          <Link href="/">Home</Link>
           <Link href="aboutUs4">About</Link>
         </div>
       </div>
