@@ -47,7 +47,7 @@ export default function Header() {
           Profile
         </Link>
       ) : (
-        <Link href="/auth" className="sign-in-btn">Sign In</Link>
+        <Link href="/signUp" className="sign-in-btn">Sign In</Link>
       )}
     </nav>
   )
