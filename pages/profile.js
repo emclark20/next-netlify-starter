@@ -22,7 +22,7 @@ export default function ProfilePage() {
         if (!response.ok) {
           // If not authenticated, redirect to login
           if (response.status === 401) {
-            router.push('/auth');
+            router.push('/signup');
             return;
           }
           throw new Error('Failed to fetch profile');
