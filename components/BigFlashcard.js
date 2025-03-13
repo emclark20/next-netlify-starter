@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from './BigFlashcard.module.css';
 
 const BigFlashcard = ({ id, category, content, videoContent }) => {
@@ -7,6 +7,7 @@ const BigFlashcard = ({ id, category, content, videoContent }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [showLoginAlert, setShowLoginAlert] = useState(false);
+  const videoRef = useRef(null);
 
   // Check if user is authenticated and if card is bookmarked
   useEffect(() => {
@@ -37,6 +38,15 @@ const BigFlashcard = ({ id, category, content, videoContent }) => {
       checkAuthAndBookmarkStatus();
     }
   }, [id]);
+
+  // Effect to handle video playback when card is flipped
+  useEffect(() => {
+    if (isFlipped && videoRef.current) {
+      videoRef.current.play().catch(err => {
+        console.error('Error auto-playing video:', err);
+      });
+    }
+  }, [isFlipped]);
 
   // Toggle flashcard flip
   const handleFlip = () => {
@@ -149,9 +159,12 @@ const BigFlashcard = ({ id, category, content, videoContent }) => {
             {videoContent ? (
               <div className={styles.videoWrapper}>
                 <video 
+                  ref={videoRef}
                   className={styles.video} 
-                  controls
                   autoPlay
+                  muted
+                  loop
+                  playsInline
                 >
                   <source src={videoContent} type="video/mp4" />
                   Your browser does not support the video tag.
