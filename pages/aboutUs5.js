@@ -82,14 +82,6 @@ const AboutPage = () => {
               </div>
             </div>
             
-            <div className="team-card">
-              <Image src="/assets/avatar.svg" width={100} height={100} alt="placeholder for team member headshot" className="team-image"/>
-              <div className="team-info">
-                <h3>Andres Rodriguez</h3>
-                <p className="bio">Andres Rodriguez is a web developer who is passionate about creating solutions for the hearing impaired and translating audio into more than just closed captions. Andres is passionate about creating equitable solutions for all. His love for development stems from his love for design and building. Andres is excited about creating solutions for the hearing impaired with SignIE as a developer.</p>
-                <p>To see more of Andres' projects see myportfoliodoesntexist.com</p>
-              </div>
-            </div>
 
             <div className="team-card">
               <Image src="/assets/avatar.svg" width={100} height={100} alt="placeholder for team member headshot" className="team-image"/>
@@ -99,6 +91,18 @@ const AboutPage = () => {
                 <p>To see more of Karen's work, visit her portfolio at: portfolionothere.com</p>
               </div>
             </div>
+
+            <div className="team-card">
+  <Image 
+    src="/assets/avatar.svg" width={100} height={100} alt="[placeholder for now] Collage of our team's journey building the ASL website" className="team-image"/>
+  <div className="team-info">
+    <h3>Our ASL Website Journey</h3>
+    <p className="bio">
+      From brainstorming sessions to late-night coding, our team has poured creativity and passion into building this ASL learning platform. We've shared laughs, overcome challenges, and grown together as developers and friends. This space celebrates the moments that made our project special!
+    </p>
+    <p>Swipe through images to see our journey from concept to completion →</p>
+  </div>
+</div>
           </div>
         </div>
       </section>
