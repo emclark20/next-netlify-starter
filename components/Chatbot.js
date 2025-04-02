@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Chatbot.module.css";
+import Image from "next/image";
 
 import { X } from "lucide-react";
 
@@ -70,8 +71,8 @@ const ChatBot = () => {
     <>
       {/* Chat trigger image */}
       {!isPressed && (
-        <img
-          src="assets/techIcon.png"
+        <Image
+          src="/assets/techIcon.png"
           width={120}
           height={120}
           alt="Chat Support"
