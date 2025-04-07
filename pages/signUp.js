@@ -31,25 +31,25 @@ const AuthPage = () => {
       setError('Passwords do not match');
       return false;
     }
-    
+
     if (!isLogin && formData.password.length < 8) {
       setError('Password must be at least 8 characters');
       return false;
     }
-    
+
     return true;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-    
+
     if (!validateForm()) {
       return;
     }
-    
+
     setLoading(true);
-    
+
     try {
       if (!isLogin) {
         // Handle signup
@@ -84,9 +84,9 @@ const AuthPage = () => {
             password: formData.password,
           }),
         });
-        
+
         const loginData = await loginResponse.json();
-        
+
         if (!loginResponse.ok) {
           throw new Error(loginData.message || 'Login failed after signup');
         }
@@ -142,8 +142,8 @@ const AuthPage = () => {
       <Head>
         <title>{isLogin ? 'Login' : 'Sign Up'} | Flashcard App</title>
       </Head>
-      
-      <Header/>
+
+      <Header />
 
       <main className="auth-main">
         <h1 className="auth-title">
@@ -201,7 +201,7 @@ const AuthPage = () => {
               </div>
             </>
           )}
-          
+
           {isLogin && (
             <div className="form-group">
               <label htmlFor="emailOrUsername">Email or Username</label>
@@ -249,20 +249,20 @@ const AuthPage = () => {
             </a>
           )}
 
-          <button 
-            type="submit" 
-            className="submit-button" 
+          <button
+            type="submit"
+            className="submit-button"
             disabled={loading}
           >
             {loading ? (isLogin ? 'Logging in...' : 'Signing up...') : 'Submit'}
           </button>
-          
+
           {/* Note: You'll need to implement Google OAuth separately */}
-          {isLogin && (
+          {/* {isLogin && (
             <button type="button" className="google-button" disabled={loading}>
               Login with Google
             </button>
-          )}
+          )} */}
 
           <div className="auth-toggle">
             {isLogin ? (
@@ -284,7 +284,7 @@ const AuthPage = () => {
         </form>
       </main>
 
-      <Footer/>
+      <Footer />
     </div>
   );
 };
