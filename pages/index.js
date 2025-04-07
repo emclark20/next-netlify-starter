@@ -19,8 +19,10 @@ export default function Home() {
     </section>
 
     <section class="explore-section">
+        <div class="explore-content">
         <h2 class="explore-title">LET'S<br/><span>EXPLORE</span><br/>SIGN<br/>LANGUAGE</h2>
         <p>American Sign Language is a complete language. Over 11 million Americans use sign language in their day to day life. We spent time with ASL experts and the Deaf community before developing this product. Our software is built to help you practice the hand gestures in real time and receive instant feedback on whether you are performing the gestures correctly. We have linked resources within the ASL community that helped us learn. Combining these outside resources with our software you will be communicating in no time!</p>
+        </div>
         
         <div class="resources">
             <div class="resource-item">
@@ -47,15 +49,18 @@ export default function Home() {
     </section>
 
     <section class="new-way">
-        <div class="new-way-content">
-            <h2>A New Way To Learn</h2>
-            <p>Our mission is to empower individuals to learn and communicate in American Sign Language through innovative technology. We strive to provide an accessible, effective, and engaging platform that fosters language acquisition, cultural understanding, and inclusion. By combining cutting-edge computer vision with personalized instruction, we aim to bridge the communication gap and create a more equitable world for ASL learners and users.</p>
-        </div>  
-        <Image src="/assets/primaryLogoBlack.svg" width={500} height={155} alt="Logo of SignIE" /> 
-        <div class="indexTriangleBotton"></div>
+            <div class="new-way-content">
+            <Image src="/assets/primaryLogoBlack.svg" width={500} height={155} alt="Logo of SignIE" /> 
+                <div class="content-new-way"> 
+                <h2>A New Way To Learn</h2>
+                <p>Our mission is to empower individuals to learn and communicate in American Sign Language through innovative technology. We strive to provide an accessible, effective, and engaging platform that fosters language acquisition, cultural understanding, and inclusion. By combining cutting-edge computer vision with personalized instruction, we aim to bridge the communication gap and create a more equitable world for ASL learners and users.</p> </div>
+            </div>  
+        <div class="indexTriangleBotton"></div> 
+        <Image src="/assets/webcamAngledLookingLeft.svg" width={300} height={370} alt="Webcam looking to the left" />
     </section>
-       <Image src="/assets/webcamAngled.svg" width={300} height={370} alt="Webcam looking to the left" />  
+
     <section class="team-section">
+        <div class="team-content">
         <h2>Meet The Team</h2>
         <p>Our team at SignIE is committed to fostering a collaborative and inclusive environment where everyone feels valued and empowered. We prioritize open communication, respect for diverse perspectives, and a shared dedication to excellence. Our team values are the foundation upon which we build strong relationships, achieve our goals, and make a positive impact.</p>
         <div class="team-avatars">
@@ -76,6 +81,7 @@ export default function Home() {
             </div>
         </div>
         <Link href="/aboutUs5" class="start-btn">About Us</Link>
+        </div>
     </section>
     <Footer/>    </div>
     

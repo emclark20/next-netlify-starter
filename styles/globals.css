@@ -102,16 +102,35 @@ nav {
   padding: 0.2rem 0.5rem;
 }
 
+.explore-content{
+  display: flex;
+  max-width: 70em;
+  padding: 2em;
+  justify-content: center;
+}
+
 .resources {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   margin: 2rem 0;
+  max-width: 80em;
+  justify-content: center;
 }
 
 .resource-item {
-  text-align: center;
+  background: white;
+          border-radius: 1rem;
+          padding: 2rem;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s ease;
+
 }
+
+.resource-item:hover {
+  transform: translateY(-5px);
+}
+
 
 .resource-item img {
   width: 50px;
@@ -119,7 +138,7 @@ nav {
 }
 
 .new-way {
-  background: linear-gradient(135deg, var(--light-blue) 40%, var(--white) 40%);
+  background: linear-gradient(135deg, var(--light-blue) 60%, var(--white) 40%);
   padding: 4rem 2rem;
   display: flex;
   align-items: center;
@@ -130,9 +149,30 @@ nav {
   flex: 1;
 }
 
+.content-new-way{
+  max-width: 40em;
+  padding: 1.5em;
+}
+
 .team-section {
   padding: 4rem 2rem;
   text-align: center;
+  display: flex;
+  justify-content: center; /* centers horizontally */
+}
+
+.team-content{
+  max-width: 55em;
+  width: 100%;
+  background: white;
+          border-radius: 1rem;
+          padding: 2rem;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s ease;
+}
+
+.team-content:hover {
+  transform: translateY(-5px);
 }
 
 .team-avatars {
