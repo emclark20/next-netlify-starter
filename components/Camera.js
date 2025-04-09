@@ -397,10 +397,10 @@ const Camera = ({ targetLetter = null, customThresholds = null }) => {
         bends: [0.1, 1.5, 1.5, 1.5, 1.5]
       },
       'B': { 
-  // More precise B sign: All fingers fully extended, tightly together, thumb tucked
-  tipDistances: [0.1, 0.9, 0.9, 0.9, 0.9],  // Thumb closer to hand, other fingers very extended
-  bends: [0.3, 0.05, 0.05, 0.05, 0.05]      // Minimal bending, thumb slightly curved
-},
+        // All fingers extended and together
+        tipDistances: [0.3, 0.8, 0.8, 0.8, 0.8],
+        bends: [0.8, 0.2, 0.2, 0.2, 0.2]
+      },
       
       'C': { 
         // Curved hand
