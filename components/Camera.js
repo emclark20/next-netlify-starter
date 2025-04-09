@@ -255,7 +255,7 @@ const Camera = ({ targetLetter = null, customThresholds = null }) => {
       const [x, y, z] = landmarks[i];
       ctx.beginPath();
       ctx.arc(x, y, 8, 0, 2 * Math.PI);
-      ctx.fillStyle = 'rgba(255, 0, 0, 0.8)';
+      ctx.fillStyle = 'rgba(0, 157, 209)';
       ctx.fill();
       
       // Inner white circle
@@ -288,7 +288,7 @@ const Camera = ({ targetLetter = null, customThresholds = null }) => {
         ctx.beginPath();
         ctx.moveTo(x1, y1);
         ctx.lineTo(x2, y2);
-        ctx.strokeStyle = 'rgba(255, 100, 255, 0.8)';
+        ctx.strokeStyle = 'rgba(26, 49, 105)';
         ctx.lineWidth = 4;
         ctx.stroke();
       }
@@ -399,7 +399,7 @@ const Camera = ({ targetLetter = null, customThresholds = null }) => {
       'B': { 
         // All fingers extended and together
         tipDistances: [0.3, 0.8, 0.8, 0.8, 0.8],
-        bends: [0.8, 0.2, 0.2, 0.2, 0.2]
+        bends: [.3, 0.2, 0.2, 0.2, 0.2]
       },
       
       'C': { 
