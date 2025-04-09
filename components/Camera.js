@@ -84,7 +84,37 @@ const letterClasses = [
   'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y'
 ];
 
-const Camera = ({ targetLetter = null }) => {
+// Letter-specific confidence thresholds
+// Customize these values for each letter based on detection difficulty
+const letterThresholds = {
+  'A': 0.3,  // Easy to detect
+  'B': 0.35,
+  'C': 0.4, //customized
+  'D': 0.35,
+  'E': 0.4,  // Harder to detect
+  'F': 0.35,
+  'G': 0.35,
+  'H': 0.4,
+  'I': 0.3,
+  'K': 0.4,
+  'L': 0.3,  // Easy to detect
+  'M': 0.45, // Harder to detect
+  'N': 0.45, // Harder to detect
+  'O': 0.35,
+  'P': 0.4,
+  'Q': 0.4,
+  'R': 0.45, // Harder to detect
+  'S': 0.4,
+  'T': 0.4,
+  'U': 0.35,
+  'V': 0.3,  // Easy to detect
+  'W': 0.35,
+  'X': 0.4,
+  'Y': 0.3,  // Easy to detect
+  'default': 0.3 // Default threshold for any unspecified letters
+};
+
+const Camera = ({ targetLetter = null, customThresholds = null }) => {
   // Refs for video and canvas elements
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
@@ -95,6 +125,10 @@ const Camera = ({ targetLetter = null }) => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [feedback, setFeedback] = useState('Loading hand detection model...');
   const [lastDetectionTime, setLastDetectionTime] = useState(0);
+  const [confidenceScore, setConfidenceScore] = useState(null);
+  
+  // Combine default thresholds with any custom thresholds provided
+  const thresholds = { ...letterThresholds, ...customThresholds };
   
   // Initialize handpose model and camera
   useEffect(() => {
@@ -188,6 +222,7 @@ const Camera = ({ targetLetter = null }) => {
             } else {
               // No hands detected
               setIsSuccess(false);
+              setConfidenceScore(null);
               setFeedback('Position your hand in view');
             }
           } catch (error) {
@@ -268,18 +303,22 @@ const Camera = ({ targetLetter = null }) => {
     // Calculate similarity with target letter
     const score = compareWithReferencePosition(features, targetLetterUpper);
     
+    // Get the threshold for this letter
+    const threshold = thresholds[targetLetterUpper] || thresholds.default;
+    
     // Update state based on score
     const now = Date.now();
     if (now - lastDetectionTime > 300) { // Update feedback every 300ms
       setLastDetectionTime(now);
+      setConfidenceScore(score);
       
-      // Show success if score is high enough
-      if (score > 0.3) { // 30% confidence threshold
+      // Show success if score is higher than the letter-specific threshold
+      if (score > threshold) {
         setIsSuccess(true);
         setFeedback(`Good job! ${targetLetterUpper} sign detected (${Math.round(score * 100)}% match)`);
       } else {
         setIsSuccess(false);
-        setFeedback(`Keep trying to make the sign for ${targetLetterUpper}`);
+        setFeedback(`Keep trying to make the sign for ${targetLetterUpper} (${Math.round(score * 100)}% match)`);
       }
     }
   };
