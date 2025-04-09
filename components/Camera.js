@@ -88,7 +88,7 @@ const letterClasses = [
 // Customize these values for each letter based on detection difficulty
 const letterThresholds = {
   'A': 0.3,  // Easy to detect
-  'B': 0.05,
+  'B': 0.3,
   'C': 0.4, //customized
   'D': 0.35,
   'E': 0.4,  // Harder to detect
@@ -397,10 +397,11 @@ const Camera = ({ targetLetter = null, customThresholds = null }) => {
         bends: [0.1, 1.5, 1.5, 1.5, 1.5]
       },
       'B': { 
-        // All fingers extended and together
-        tipDistances: [0.3, 0.8, 0.8, 0.8, 0.8],
-        bends: [0.8, 0.2, 0.2, 0.2, 0.2]
-      },
+  // More precise B sign: All fingers fully extended, tightly together, thumb tucked
+  tipDistances: [0.1, 0.9, 0.9, 0.9, 0.9],  // Thumb closer to hand, other fingers very extended
+  bends: [0.3, 0.05, 0.05, 0.05, 0.05]      // Minimal bending, thumb slightly curved
+},
+      
       'C': { 
         // Curved hand
         tipDistances: [0.5, 0.6, 0.6, 0.6, 0.5],
