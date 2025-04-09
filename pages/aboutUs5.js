@@ -26,6 +26,7 @@ const AboutPage = () => {
           <h2 className="mission-statement">
             Working to provide an interactive experience for individuals to master the basics of American Sign Language
           </h2>
+          
           <Image 
             src="/assets/webcamAngledLookingLeft.svg" 
             width={400} 

@@ -15,6 +15,7 @@ export default function Home() {
             <Link href="flashcards" class="start-btn">Start Using SignIE</Link>
         </div>
         <div class="indexPentagon"></div>
+        {/*CLARK THIS IS FOR YOU*/}
         <Image src="/assets/webcam.svg" width={400} height={470} alt="Webcam" />
     </section>
 
@@ -56,6 +57,7 @@ export default function Home() {
                 <p>Our mission is to empower individuals to learn and communicate in American Sign Language through innovative technology. We strive to provide an accessible, effective, and engaging platform that fosters language acquisition, cultural understanding, and inclusion. By combining cutting-edge computer vision with personalized instruction, we aim to bridge the communication gap and create a more equitable world for ASL learners and users.</p> </div>
             </div>  
         <div class="indexTriangleBotton"></div> 
+        {/*CLARK THIS IS FOR YOU*/}
         <Image src="/assets/webcamAngledLookingLeft.svg" width={300} height={370} alt="Webcam looking to the left" />
     </section>
 
