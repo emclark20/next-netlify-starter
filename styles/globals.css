@@ -411,6 +411,7 @@ nav {
 }
 
 .forgot-password {
+  font-family: var(--font-nunito);
   color: #03A9F4;
   text-decoration: none;
   text-align: right;

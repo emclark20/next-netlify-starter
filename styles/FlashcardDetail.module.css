@@ -1,77 +1,80 @@
 /* styles/FlashcardDetail.module.css */
 .container {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .main {
-    flex: 1;
-    width: 100%;
-    padding: 2rem 1rem;
-  }
-  
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  width: 100%;
+  padding: 2rem 1rem;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cameraContainer {
+  background-color: #FEE7CC;
+  border-radius: 8px;
+  padding: 1rem;
+  height: 400px;
+  /* Match the height of BigFlashcard */
+  display: flex;
+  flex-direction: column;
+}
+
+.carouselsSection {
+  margin-top: 2rem;
+  max-width: 1200px;
+  margin: 3rem auto 0;
+}
+
+.loading,
+.error {
+  font-family: var(--font-nunito);
+  text-align: center;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+}
+
+.error {
+  color: #f44336;
+}
+
+.backButton {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #1c2959;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
   .contentGrid {
-    display: grid;
-    grid-template-columns: 1fr 350px;
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    grid-template-columns: 1fr;
   }
-  
-  .mainContent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  
+
   .cameraContainer {
-    background-color: #FEE7CC;
-    border-radius: 8px;
-    padding: 1rem;
-    height: 400px; /* Match the height of BigFlashcard */
-    display: flex;
-    flex-direction: column;
+    height: auto;
+    order: -1;
   }
-  
-  .carouselsSection {
-    margin-top: 2rem;
-    max-width: 1200px;
-    margin: 3rem auto 0;
-  }
-  
-  .loading, .error {
-    text-align: center;
-    padding: 2rem;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 600px;
-  }
-  
-  .error {
-    color: #f44336;
-  }
-  
-  .backButton {
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    background-color: #1c2959;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  @media (max-width: 900px) {
-    .contentGrid {
-      grid-template-columns: 1fr;
-    }
-    
-    .cameraContainer {
-      height: auto;
-      order: -1;
-    }
-  }
+}
