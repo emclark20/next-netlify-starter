@@ -88,7 +88,7 @@ const letterClasses = [
 // Customize these values for each letter based on detection difficulty
 const letterThresholds = {
   'A': 0.3,  // Easy to detect
-  'B': 0.35,
+  'B': 0.05,
   'C': 0.4, //customized
   'D': 0.35,
   'E': 0.4,  // Harder to detect
