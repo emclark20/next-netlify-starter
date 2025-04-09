@@ -212,7 +212,7 @@ const AuthPage = () => {
                 value={formData.emailOrUsername}
                 onChange={handleInputChange}
                 required
-                placeholder="Enter your email or username"
+                placeholder="Enter Email or Username"
               />
             </div>
           )}
@@ -226,6 +226,7 @@ const AuthPage = () => {
               value={formData.password}
               onChange={handleInputChange}
               required
+              placeholder="Enter Password"
             />
           </div>
 
