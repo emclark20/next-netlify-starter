@@ -10,6 +10,8 @@ import AlphabetCarousel from '@components/AlphabetCarousel';
 import PhrasesCarousel from '@components/PhrasesCarousel';
 import styles from '../../styles/FlashcardDetail.module.css';
 import Tutorial from '@components/Tutorial';
+import SignLanguageDetector from '@components/SignLanguageDetector';
+
 export default function FlashcardDetailPage() {
   const router = useRouter();
   const { id } = router.query;
@@ -25,11 +27,9 @@ export default function FlashcardDetailPage() {
       try {
         setLoading(true);
         const response = await fetch(`/api/flashcards/${id}`);
-        
         if (!response.ok) {
           throw new Error('Failed to fetch flashcard');
         }
-        
         const data = await response.json();
         setFlashcard(data.flashcard);
       } catch (err) {
@@ -43,21 +43,35 @@ export default function FlashcardDetailPage() {
     fetchFlashcard();
   }, [id]);
 
+  // Get the letter or word being practiced
+  const getCurrentContent = () => {
+    if (!flashcard) return null;
+    
+    // For alphabet flashcards, extract the first letter
+    if (flashcard.category === 'Alphabet') {
+      return flashcard.content.charAt(0);
+    }
+    
+    // For other categories, return null or the content if you want to practice whole words
+    return null;
+  };
+
   return (
     <div className={styles.container}>
       <Head>
         <title>
-          {loading 
-            ? 'Loading Flashcard' 
-            : flashcard 
-              ? `${flashcard.content} | ${flashcard.category} | SignIE` 
-              : 'Flashcard Not Found'}
+          {loading
+            ? 'Loading Flashcard'
+            : flashcard
+            ? `${flashcard.content} | ${flashcard.category} | SignIE`
+            : 'Flashcard Not Found'}
         </title>
         <meta name="description" content="Learn American Sign Language with interactive flashcards" />
       </Head>
 
       <Header />
       <Tutorial />
+
       <main className={styles.main}>
         <div className={styles.contentGrid}>
           {/* Main flashcard area */}
@@ -67,7 +81,7 @@ export default function FlashcardDetailPage() {
             ) : error ? (
               <div className={styles.error}>
                 <p>{error}</p>
-                <button 
+                <button
                   className={styles.backButton}
                   onClick={() => router.push('/flashcards')}
                 >
@@ -84,7 +98,7 @@ export default function FlashcardDetailPage() {
             ) : (
               <div className={styles.error}>
                 <p>Flashcard not found</p>
-                <button 
+                <button
                   className={styles.backButton}
                   onClick={() => router.push('/flashcards')}
                 >
@@ -94,9 +108,17 @@ export default function FlashcardDetailPage() {
             )}
           </div>
           
-          {/* Replace sidebar with Camera component */}
-          <div className={styles.cameraContainer}>
-            <Camera />
+          {/* Camera component with proper height and target letter */}
+          <div className={styles.cameraContainer} style={{ height: '400px', position: 'relative' }}>
+            <h3 className={styles.practiceHeading}>Practice Sign</h3>
+            {!loading && flashcard && (
+              <Camera targetLetter={getCurrentContent()} />
+            )}
+            {!loading && flashcard && (
+              <p className={styles.practiceInstructions}>
+                Show the sign for {flashcard.category === 'Alphabet' ? `letter "${flashcard.content}"` : `"${flashcard.content}"`}
+              </p>
+            )}
           </div>
         </div>
         
@@ -105,6 +127,7 @@ export default function FlashcardDetailPage() {
           <AlphabetCarousel />
           <PhrasesCarousel />
         </div>
+  
       </main>
       
       <Footer />

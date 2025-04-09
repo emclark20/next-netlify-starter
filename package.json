@@ -10,6 +10,11 @@
   },
   "dependencies": {
     "@netlify/plugin-nextjs": "^5.9.3",
+    "@tensorflow-models/hand-pose-detection": "^2.0.1",
+    "@tensorflow-models/handpose": "^0.1.0",
+    "@tensorflow/tfjs": "^4.22.0",
+    "@tensorflow/tfjs-backend-webgl": "^4.22.0",
+    "@tensorflow/tfjs-core": "^4.22.0",
     "airtable": "^0.12.2",
     "bcryptjs": "^3.0.2",
     "cookie": "^1.0.2",
@@ -21,7 +26,8 @@
     "next-cookies": "^2.0.3",
     "pg": "^8.14.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "tf": "^1.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
