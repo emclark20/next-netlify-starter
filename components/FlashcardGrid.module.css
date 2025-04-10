@@ -24,6 +24,7 @@
 }
 
 .empty {
+  font-family: var(--font-nunito);
   text-align: center;
   padding: 2rem;
   color: #666;
