@@ -995,11 +995,13 @@ footer {
 }
 
 .info-label {
+  font-family: var(--font-nunito);
   font-size: 0.9rem;
   color: #666;
 }
 
 .info-value {
+  font-family: var(--font-nunito);
   font-size: 1.1rem;
   font-weight: 500;
 }

@@ -164,6 +164,7 @@ const AuthPage = () => {
                   value={formData.firstName}
                   onChange={handleInputChange}
                   required
+                  placeholder="Enter First Name"
                 />
               </div>
               <div className="form-group">
@@ -175,6 +176,7 @@ const AuthPage = () => {
                   value={formData.lastName}
                   onChange={handleInputChange}
                   required
+                  placeholder="Enter Last Name"
                 />
               </div>
               <div className="form-group">
@@ -186,6 +188,7 @@ const AuthPage = () => {
                   value={formData.username}
                   onChange={handleInputChange}
                   required
+                  placeholder="Enter Username"
                 />
               </div>
               <div className="form-group">
@@ -197,6 +200,7 @@ const AuthPage = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
+                  placeholder="Enter Username"
                 />
               </div>
             </>
@@ -240,6 +244,7 @@ const AuthPage = () => {
                 value={formData.confirmPassword}
                 onChange={handleInputChange}
                 required
+                placeholder="Confirm Password"
               />
             </div>
           )}
