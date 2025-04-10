@@ -31,25 +31,25 @@ const AuthPage = () => {
       setError('Passwords do not match');
       return false;
     }
-    
+
     if (!isLogin && formData.password.length < 8) {
       setError('Password must be at least 8 characters');
       return false;
     }
-    
+
     return true;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-    
+
     if (!validateForm()) {
       return;
     }
-    
+
     setLoading(true);
-    
+
     try {
       if (!isLogin) {
         // Handle signup
@@ -84,9 +84,9 @@ const AuthPage = () => {
             password: formData.password,
           }),
         });
-        
+
         const loginData = await loginResponse.json();
-        
+
         if (!loginResponse.ok) {
           throw new Error(loginData.message || 'Login failed after signup');
         }
@@ -142,8 +142,8 @@ const AuthPage = () => {
       <Head>
         <title>{isLogin ? 'Login' : 'Sign Up'} | Flashcard App</title>
       </Head>
-      
-      <Header/>
+
+      <Header />
 
       <main className="auth-main">
         <h1 className="auth-title">
@@ -164,6 +164,7 @@ const AuthPage = () => {
                   value={formData.firstName}
                   onChange={handleInputChange}
                   required
+                  placeholder="Enter First Name"
                 />
               </div>
               <div className="form-group">
@@ -175,6 +176,7 @@ const AuthPage = () => {
                   value={formData.lastName}
                   onChange={handleInputChange}
                   required
+                  placeholder="Enter Last Name"
                 />
               </div>
               <div className="form-group">
@@ -186,6 +188,7 @@ const AuthPage = () => {
                   value={formData.username}
                   onChange={handleInputChange}
                   required
+                  placeholder="Enter Username"
                 />
               </div>
               <div className="form-group">
@@ -197,11 +200,12 @@ const AuthPage = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
+                  placeholder="Enter Username"
                 />
               </div>
             </>
           )}
-          
+
           {isLogin && (
             <div className="form-group">
               <label htmlFor="emailOrUsername">Email or Username</label>
@@ -212,7 +216,7 @@ const AuthPage = () => {
                 value={formData.emailOrUsername}
                 onChange={handleInputChange}
                 required
-                placeholder="Enter your email or username"
+                placeholder="Enter Email or Username"
               />
             </div>
           )}
@@ -226,6 +230,7 @@ const AuthPage = () => {
               value={formData.password}
               onChange={handleInputChange}
               required
+              placeholder="Enter Password"
             />
           </div>
 
@@ -239,6 +244,7 @@ const AuthPage = () => {
                 value={formData.confirmPassword}
                 onChange={handleInputChange}
                 required
+                placeholder="Confirm Password"
               />
             </div>
           )}
@@ -249,20 +255,20 @@ const AuthPage = () => {
             </a>
           )}
 
-          <button 
-            type="submit" 
-            className="submit-button" 
+          <button
+            type="submit"
+            className="submit-button"
             disabled={loading}
           >
             {loading ? (isLogin ? 'Logging in...' : 'Signing up...') : 'Submit'}
           </button>
-          
+
           {/* Note: You'll need to implement Google OAuth separately */}
-          {isLogin && (
+          {/* {isLogin && (
             <button type="button" className="google-button" disabled={loading}>
               Login with Google
             </button>
-          )}
+          )} */}
 
           <div className="auth-toggle">
             {isLogin ? (
@@ -284,7 +290,7 @@ const AuthPage = () => {
         </form>
       </main>
 
-      <Footer/>
+      <Footer />
     </div>
   );
 };

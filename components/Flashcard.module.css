@@ -1,145 +1,149 @@
 /* Add these styles to your existing Flashcard.module.css file */
 
 .flashcard {
-    width: 100%;
-    height: 300px; /* Fixed height for all cards */
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .header {
-    background-color: #1A237E; /* dark blue */
-    color: white;
-    padding: 0.75rem 1rem;
+  width: 100%;
+  height: 300px;
+  /* Fixed height for all cards */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
 
-  }
-  
-  .title {
-    margin: 0;
-    font-weight: bold;
-    font-size: 1.25rem;
-    /* font-family: var(--font-league-spartan), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; */
-    font-family: var(--font-nunito), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  }
-  
-  .content {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-  }
-  
-  .letter {
-    text-align: center;
-    font-weight: bold;
-    font-family: var(--font-nunito), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  }
-  
-  .fixedSize {
-    font-size: clamp(1.5rem, 5vw, 3.5rem); /* Responsive but capped size */
-    display: block;
-    width: 100%;
-    word-wrap: break-word;
-    hyphens: auto;
-    line-height: 1.2;
-    overflow-wrap: break-word;
-  }
-  
-  .link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    height: 100%;
-  }
+.header {
+  background-color: #1A237E;
+  /* dark blue */
+  color: white;
+  padding: 0.75rem 1rem;
 
-  .flashcardContainer {
-    position: relative;
-  }
-  
-  .flashcard {
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    overflow: hidden;
-    transition: transform 0.2s, box-shadow 0.2s;
-    width: 100%;
-    height: 200px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .flashcard:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  }
-  
-  .header {
-    background-color: #1c2959;
-    color: white;
-    padding: 0.5rem 1rem;
-  }
-  
-  .title {
-    margin: 0;
-    font-size: 1rem;
-    font-weight: 500;
-  }
-  
-  .content {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    background-color: white;
-  }
-  
-  .letter {
-    font-size: 3rem;
-    font-weight: bold;
-    text-align: center;
-  }
-  
-  .fixedSize {
-    display: inline-block;
-    min-width: 80px;
-    text-align: center;
-  }
-  
-  .link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-  }
-  
-  .bookmarkButton {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    color: #666;
-    padding: 5px;
-    z-index: 5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: color 0.2s;
-  }
-  
-  .bookmarkButton:hover {
-    color: #333;
-  }
-  
-  .bookmarkButton.bookmarked {
-    color: #1c2959;
-  }
-  /* Keep your existing Flashcard styles and add these new ones */
+}
+
+.title {
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.25rem;
+  /* font-family: var(--font-league-spartan), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; */
+  font-family: var(--font-nunito), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.letter {
+  text-align: center;
+  font-weight: bold;
+  font-family: var(--font-nunito), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.fixedSize {
+  font-size: clamp(1.5rem, 5vw, 3.5rem);
+  /* Responsive but capped size */
+  display: block;
+  width: 100%;
+  word-wrap: break-word;
+  hyphens: auto;
+  line-height: 1.2;
+  overflow-wrap: break-word;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+}
+
+.flashcardContainer {
+  position: relative;
+}
+
+.flashcard {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.flashcard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.header {
+  background-color: #1c2959;
+  color: white;
+  padding: 0.5rem 1rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: white;
+}
+
+.letter {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.fixedSize {
+  display: inline-block;
+  min-width: 80px;
+  text-align: center;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.bookmarkButton {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  padding: 5px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.bookmarkButton:hover {
+  color: #333;
+}
+
+.bookmarkButton.bookmarked {
+  color: #1c2959;
+}
+
+/* Keep your existing Flashcard styles and add these new ones */
 
 .flashcardContainer {
   position: relative;
@@ -240,6 +244,7 @@
 
 /* Loading card placeholder */
 .loadingCard {
+  font-family: var(--font-nunito);
   background-color: #f5f5f5;
   border-radius: 4px;
   height: 100%;
