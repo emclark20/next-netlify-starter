@@ -6,6 +6,10 @@ import Image from 'next/image'
 export default function Home() {
   return (
     <div>
+        <Head>
+      <title>SignIE - Learn ASL Online</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    </Head>
 <Header/>
     <section class="hero">
         <div class="hero-content">
