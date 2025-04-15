@@ -4,8 +4,8 @@ import Head from 'next/head';
 import Header from '@components/Header';
 import Footer from '@components/Footer';
 import BigFlashcard from '@components/BigFlashcard';
-import AlphabetCarousel from '@components/AlphabetCarousel'; // Your existing component
-import PhrasesCarousel from '@components/PhrasesCarousel'; // Your existing component
+import AlphabetCarousel from '@components/AlphabetCarousel'; 
+import PhrasesCarousel from '@components/PhrasesCarousel'; 
 import styles from '@styles/FlashcardDetail.module.css';
 
 export default function FlashcardDetailPage() {
