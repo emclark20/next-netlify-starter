@@ -1135,3 +1135,100 @@ footer {
     font-size: 2rem;
   }
 }
+
+/* Add this to your globals.css or create a new CSS file */
+
+/* Default styles for desktop */
+.hero, .explore-section, .new-way, .team-section {
+  /* Your existing desktop styles */
+}
+
+/* Mobile styles - will only apply when screen width is 768px or less */
+@media (max-width: 768px) {
+  /* Hero section mobile styling */
+  .hero {
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+  }
+  
+  .hero-content {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .start-btn {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  /* Resource section mobile styling */
+  .explore-section {
+    padding: 2rem 1.5rem;
+  }
+  
+  .explore-title {
+    font-size: 2rem;
+  }
+  
+  /* Convert grid to single column layout */
+  .resources {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .resource-item {
+    width: 100%;
+  }
+  
+  /* Mission section mobile styling */
+  .new-way {
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+  }
+  
+  .new-way-content {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Team section mobile styling */
+  .team-section {
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+  
+  .team-avatars {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .avatar {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+/* Extra small devices (phones) */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .start-btn {
+    width: 100%;
+  }
+}

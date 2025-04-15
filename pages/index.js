@@ -58,23 +58,7 @@ export default function Home() {
     <section class="team-section">
         <h2>Meet The Team</h2>
         <p>Our team at SignIE is committed to fostering a collaborative and inclusive environment where everyone feels valued and empowered. We prioritize open communication, respect for diverse perspectives, and a shared dedication to excellence. Our team values are the foundation upon which we build strong relationships, achieve our goals, and make a positive impact.</p>
-        <div class="team-avatars">
-            <div class="avatar">
-            <Image src="/assets/avatar.svg" width={100} height={100} alt="placeholder for team member headshot" />
-            </div>
-            <div class="avatar">
-            <Image src="/assets/avatar.svg" width={100} height={100} alt="placeholder for team member headshot" />
-            </div>
-            <div class="avatar">
-            <Image src="/assets/avatar.svg" width={100} height={100} alt="placeholder for team member headshot" />
-            </div>
-            <div class="avatar">
-            <Image src="/assets/avatar.svg" width={100} height={100} alt="placeholder for team member headshot" />
-            </div>
-            <div class="avatar">
-            <Image src="/assets/avatar.svg" width={100} height={100} alt="placeholder for team member headshot" />
-            </div>
-        </div>
+        
         <Link href="/aboutUs5" class="start-btn">About Us</Link>
     </section>
     <Footer/>    </div>
