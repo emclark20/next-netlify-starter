@@ -1217,3 +1217,62 @@ footer {
     padding: 2rem 1rem 0;
   }
 }
+/* Add to your globals.css file */
+@media (max-width: 768px) {
+  /* Resources layout fix */
+  .resources, .resource-item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  
+  .resource-item {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .resource-item h3 {
+    font-size: 1.3rem;
+    margin: 0.75rem 0;
+  }
+  
+  .resource-item p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  /* Adjust icon sizing and spacing */
+  .resource-item img {
+    width: 60px !important;
+    height: auto !important;
+    margin: 0 auto;
+  }
+}
+/* Add to your globals.css file */
+@media (max-width: 768px) {
+  /* Navbar mobile optimization */
+  nav {
+    padding: 0.75rem 1rem;
+  }
+  
+  .nav-links {
+    gap: 1rem;
+  }
+  
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+  
+  /* Make the logo smaller on mobile */
+  nav img {
+    height: 30px;
+    width: auto;
+  }
+  
+  /* Improve touch target for sign-in button */
+  .sign-in-btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+}
