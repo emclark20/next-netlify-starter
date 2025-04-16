@@ -10,7 +10,7 @@ const AboutPage = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="hero">
+      <section className="hero2">
         <div className="content-wrapper">
           <h1>THE MISSION</h1>
           <div className="logo-container">
@@ -166,7 +166,7 @@ const AboutPage = () => {
         }
 
         /* Hero Section */
-        .hero {
+        .hero2 {
           width: 100vw;
           background: linear-gradient(135deg, #ffffff 0%, #E6F3FF 100%);
           padding: 4rem 0;
@@ -175,7 +175,7 @@ const AboutPage = () => {
           min-height: 800px;
         }
 
-        .hero::after {
+        .hero2::after {
           content: '';
           position: absolute;
           top: 0;
@@ -187,7 +187,7 @@ const AboutPage = () => {
           z-index: 1;
         }
 
-        .hero .content-wrapper {
+        .hero2 .content-wrapper {
           position: relative;
           z-index: 2;
           display: flex;

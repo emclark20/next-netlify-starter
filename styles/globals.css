@@ -18,12 +18,7 @@ p {
 }
 
 /* Use League Spartan for headings */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1,h2, h3, h4, h5, h6 {
   font-family: var(--font-league-spartan), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
@@ -55,7 +50,6 @@ nav {
   text-decoration: none;
   justify-self: end;
 }
-
 /* INDEX PAGE CSS */
 .hero {
   display: flex;
@@ -66,6 +60,7 @@ nav {
 .hero-content {
   flex: 1;
   padding-right: 2rem;
+  padding-left: 5%;
 }
 
 .hero h1 {
@@ -77,6 +72,7 @@ nav {
 .hero p {
   margin-bottom: 2rem;
   line-height: 1.6;
+  max-width: 15em;
 }
 
 .start-btn {
@@ -86,7 +82,7 @@ nav {
   border-radius: 4px;
   text-decoration: none;
   display: inline-block;
-  font-family: var(--font-league-spartan), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family:  var(--font-league-spartan), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .webcam-icon {
@@ -96,6 +92,8 @@ nav {
 
 .explore-section {
   padding: 4rem 2rem;
+  max-width: 80em;
+  margin: 0 auto; /* This centers the section on the page */
 }
 
 .explore-title {
@@ -108,15 +106,34 @@ nav {
   padding: 0.2rem 0.5rem;
 }
 
+.explore-content {
+  display: flex;
+  padding: 2em;
+  justify-content: center;
+  gap: 3em;
+  /* Consider adding flex-wrap: wrap for mobile responsiveness */
+}
+
 .resources {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   margin: 2rem 0;
+  max-width: 80em;
+  margin-left: auto; /* These two auto margins will center the grid */
+  margin-right: auto;
 }
 
 .resource-item {
-  text-align: center;
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.resource-item:hover {
+  transform: translateY(-5px);
 }
 
 .resource-item img {
@@ -125,7 +142,7 @@ nav {
 }
 
 .new-way {
-  background: linear-gradient(135deg, var(--light-blue) 40%, var(--white) 40%);
+  background: linear-gradient(135deg, var(--light-blue) 60%, var(--white) 40%);
   padding: 4rem 2rem;
   display: flex;
   align-items: center;
@@ -136,9 +153,30 @@ nav {
   flex: 1;
 }
 
+.content-new-way{
+  max-width: 40em;
+  padding: 1.5em;
+}
+
 .team-section {
   padding: 4rem 2rem;
   text-align: center;
+  display: flex;
+  justify-content: center; /* centers horizontally */
+}
+
+.team-content{
+  max-width: 55em;
+  width: 100%;
+  background: white;
+          border-radius: 1rem;
+          padding: 2rem;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s ease;
+}
+
+.team-content:hover {
+  transform: translateY(-5px);
 }
 
 .team-avatars {
