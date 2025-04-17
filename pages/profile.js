@@ -46,15 +46,10 @@ export default function ProfilePage() {
       const response = await fetch('/api/auth/logout', {
         method: 'POST',
       });
-
+  
       if (response.ok) {
-        // After successful logout, redirect to home page
-        router.push('/');
-        // Add a small delay to allow the cookie to be cleared
-        setTimeout(() => {
-          // Force a page refresh to update all components that rely on auth state
-          window.location.reload();
-        }, 100);
+        // Force a complete page refresh after logout
+        window.location.href = '/';
       }
     } catch (err) {
       console.error('Logout error:', err);
