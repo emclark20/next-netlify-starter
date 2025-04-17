@@ -1,11 +1,9 @@
 // pages/api/user/profile.js
+import { withAuth } from '../../../middleware/auth';
+
 const handler = async (req, res) => {
-  // Add detailed logging
-  console.log('User profile request', {
-    userId: req.user.user_id,
-    username: req.user.username,
-    requestTime: new Date().toISOString()
-  });
+  // This route is protected by withAuth middleware
+  // req.user is already available
   
   return res.status(200).json({ 
     message: 'Profile retrieved successfully', 
