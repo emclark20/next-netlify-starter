@@ -103,13 +103,13 @@ const letterThresholds = {
   'O': 0.35,
   'P': 0.4,
   'Q': 0.4,
-  'R': 0.45, // Harder to detect
+  'R': 0.33, // Harder to detect
   'S': 0.4,
   'T': 0.4,
   'U': 0.35,
   'V': 0.3,  // Easy to detect
   'W': 0.35,
-  'X': 0.4,
+  'X': 0.3,
   'Y': 0.3,  // Easy to detect
   'default': 0.3 // Default threshold for any unspecified letters
 };

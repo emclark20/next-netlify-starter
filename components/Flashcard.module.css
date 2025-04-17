@@ -315,6 +315,7 @@
   border: none;
   cursor: pointer;
   font-size: 0.9rem;
+  font-family: var(--font-nunito);
 }
 
 .cancelButton {
@@ -325,4 +326,5 @@
   border: 1px solid #ddd;
   cursor: pointer;
   font-size: 0.9rem;
+  font-family: var(--font-nunito);
 }

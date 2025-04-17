@@ -47,21 +47,21 @@ const AboutPage = () => {
         <div className="content-wrapper">
           <h2>Meet the Team</h2>
           <div className="team-grid">
-            <div className="team-card">
-              <Image src="/assets/avatar.png" width={100} height={100} alt="placeholder for team member headshot" className="team-image"/>
-              <div className="team-info">
-                <h3>Leigh Adams</h3>
-                <p className="bio">Leigh takes great joy in both design and programming and working on SignIE allowed them to push their skills to the limit. Education and the facilitation of it has always been of interest to Leigh, as well as finding new ways to advance that process and make it easier for anyone trying to learn. Through working with the SignIE team, this dream was brought to life.</p>
-                <p>To see more of Leigh's work, visit their portfolio at: https://jericho-smericho.github.io/AdamsPortfolio/</p>
-              </div>
-            </div>
+          <div className="team-card">
+  <Image src="/assets/avatar.png" width={100} height={100} alt="placeholder for team member headshot" className="team-image"/>
+  <div className="team-info">
+    <h3>Leigh Adams</h3>
+    <p className="bio">Leigh takes great joy in both design and programming and working on SignIE allowed them to push their skills to the limit. Education and the facilitation of it has always been of interest to Leigh, as well as finding new ways to advance that process and make it easier for anyone trying to learn. Through working with the SignIE team, this dream was brought to life.</p>
+    <p>To see more of Leigh's work, visit their portfolio: <a href="https://le247145.wixsite.com/leigh-adams-portfo-1" className="portfolio-btn">HERE</a></p>
+  </div>
+</div>
 
             <div className="team-card">
               <Image src="/assets/avatar.svg" width={100} height={100} alt="placeholder for team member headshot" className="team-image"/>
               <div className="team-info">
                 <h3>Emily Clark</h3>
                 <p className="bio">Emily Clark is a web developer who is passionate about communication and accessibility. This project has married both of these passions and has been a joy to work on. Clark worked intimately on designing the architecture of SignIE and is incredibly proud of our final product.</p>
-                <p>To see more of Clark's projects see myportfoliodoesntexist.com</p>
+                <p>To see more of Clark's  work, visit their portfolio: <a href="http://emilypatriciaclark.netlify.app" className="portfolio-btn">HERE</a></p>
               </div>
             </div>
 
@@ -70,7 +70,7 @@ const AboutPage = () => {
               <div className="team-info">
                 <h3>Patsy Paredes</h3>
                 <p className="bio">Patsy is a dedicated designer with a passion for accessibility and fostering community through thoughtful design. Working on SignIE has allowed her to combine her skills and experiences to create an inclusive platform that empowers users to learn and connect. For Patsy, contributing to a tool that promotes understanding and accessibility has been an incredibly rewarding experience.</p>
-                <p>To see more of Patsy's project see myportfoliodoesntexist.com</p>
+                <p>To see more of Patsy's  work, visit their portfolio: <a href="http://myportfoliodoesntexist.com" className="portfolio-btn">HERE</a></p>
               </div>
             </div>
 
@@ -79,7 +79,7 @@ const AboutPage = () => {
               <div className="team-info">
                 <h3>Andres Rodriguez</h3>
                 <p className="bio">Andres Rodriguez is a web developer who is passionate about creating solutions for the hearing impaired and translating audio into more than just closed captions. Andres is passionate about creating equitable solutions for all. His love for development stems from his love for design and building. Andres is excited about creating solutions for the hearing impaired with SignIE as a developer.</p>
-                <p>To see more of Andres' projects see myportfoliodoesntexist.com</p>
+                <p>To connect with Andres', find their LinkedIn: <a href="http://myportfoliodoesntexist.com" className="portfolio-btn">HERE</a></p>
               </div>
             </div>
             
@@ -91,9 +91,11 @@ const AboutPage = () => {
               </p>
               <ImageGalleryDiv 
                           images={[
-                            '/assets/development1.jpg',
+                            '/assets/development8.jpg',
                             '/assets/development2.jpg',
-                            
+                            '/assets/development3.jpg',
+                            '/assets/development4.jpg',
+                            '/assets/development5.jpg','/assets/development6.jpg','/assets/development7.jpg','/assets/development9.jpg'
                           ]} 
                         />
             </div>
@@ -105,7 +107,7 @@ const AboutPage = () => {
               <div className="team-info">
                 <h3>Karen Sanchez Crespo</h3>
                 <p className="bio">Karen Sanchez at her core is a strong designer and communicator. Fluent in 3 languages - not including programming languages! Her passion for SignIE stems from her journey of learning ASL, where she recognized a lack of interactive tools to support her studies. This experience inspired her dedication to the project and its mission to transform ASL education.</p>
-                <p>To see more of Karen's work, visit her portfolio at: https://ka436950.github.io/Karen-Sanchez-Crespo-s-Portfolio/</p>
+                <p>To see more of Karen's work, visit her portfolio: <a href="https://ka436950.github.io/Karen-Sanchez-Crespo-s-Portfolio/" className="portfolio-btn">HERE</a></p>
               </div>
             </div>
 
@@ -348,6 +350,22 @@ const AboutPage = () => {
           line-height: 1.6;
           margin-bottom: 1.5rem;
         }
+          .portfolio-btn {
+  display: inline-block;
+  background-color: #1D2761;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 1rem; 
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.portfolio-btn:hover {
+  background-color: #3B82F6;
+  transform: translateY(-2px);
+}
 
         /* Responsive Design */
         @media (max-width: 968px) {

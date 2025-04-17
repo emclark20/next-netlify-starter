@@ -6,6 +6,7 @@ import Header from '@components/Header';
 import Footer from '@components/Footer';
 import BigFlashcard from '@components/BigFlashcard';
 import Camera from '@components/Camera';
+import BasicCamera from '@components/BasicCamera';
 import AlphabetCarousel from '@components/AlphabetCarousel';
 import PhrasesCarousel from '@components/PhrasesCarousel';
 import styles from '../../styles/FlashcardDetail.module.css';
@@ -163,7 +164,7 @@ export default function FlashcardDetailPage() {
             {/* Add carousels below the main content */}
             <div className={styles.carouselsSection}>
               <AlphabetCarousel />
-              <PhrasesCarousel />
+              
             </div>
           </main>
         </>
