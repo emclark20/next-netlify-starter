@@ -70,7 +70,7 @@ const AboutPage = () => {
               <div className="team-info">
                 <h3>Patsy Paredes</h3>
                 <p className="bio">Patsy is a dedicated designer with a passion for accessibility and fostering community through thoughtful design. Working on SignIE has allowed her to combine her skills and experiences to create an inclusive platform that empowers users to learn and connect. For Patsy, contributing to a tool that promotes understanding and accessibility has been an incredibly rewarding experience.</p>
-                <p>To see more of Patsy's  work, visit their portfolio: <a href="http://myportfoliodoesntexist.com" className="portfolio-btn">HERE</a></p>
+                <p>To see more of Patsy's  work, visit their portfolio: <a href="https://patsyparedes.my.canva.site/patsy-paredes-portfolio" className="portfolio-btn">HERE</a></p>
               </div>
             </div>
 
